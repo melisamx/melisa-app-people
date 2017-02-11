@@ -14,7 +14,7 @@ class ModulesDesktopSeeder extends Seeder
     {
         
         $this->call(Desktop\Contacts\ViewSeeder::class);
-        $this->call(Desktop\Labels\ViewSeeder::class);
+        $this->call(Desktop\Labels\Contacts\ViewSeeder::class);
         
     }
     

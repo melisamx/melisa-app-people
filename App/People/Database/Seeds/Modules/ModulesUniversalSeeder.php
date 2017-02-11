@@ -13,7 +13,8 @@ class ModulesUniversalSeeder extends Seeder
     public function run()
     {
         
-        //$this->call(Universal\Seeder::class);
+        $this->call(Universal\Contacts\PagingSeeder::class);
+        $this->call(Universal\Labels\Contacts\PagingSeeder::class);
         
     }
     
