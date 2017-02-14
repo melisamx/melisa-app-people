@@ -13,7 +13,9 @@ class DataSeeder extends InstallSeeder
     public function run()
     {
         
-        //$this->call(Data\Seeder::class);
+        $this->call(Data\LabelsEmailsSeeder::class);
+        $this->call(Data\LabelsPhoneNumbersSeeder::class);
+        $this->call(Data\LabelsContactsSeeder::class);
         
     }
     

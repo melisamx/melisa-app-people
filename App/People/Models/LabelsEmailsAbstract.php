@@ -20,6 +20,6 @@ class LabelsEmailsAbstract extends Base
     
     public $timestamps = false;
     
-    /* incrementing */
+    public $incrementing = true;
     
 }

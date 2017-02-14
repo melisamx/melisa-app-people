@@ -46,7 +46,18 @@ Ext.define('Melisa.people.view.desktop.contacts.view.Wrapper', {
                     layout: 'accordion',
                     items: [
                         {
-                            title: 'Etiquetas'
+                            title: 'Etiquetas',
+                            layout: 'fit',
+                            items: [
+                                {
+                                    xtype: 'treelist',
+                                    bind: '{labelsContacts}',
+                                    ui: 'navigation',
+                                    defaults: {
+                                        indent: 15
+                                    }
+                                }
+                            ]
                         }
                     ]
                 }

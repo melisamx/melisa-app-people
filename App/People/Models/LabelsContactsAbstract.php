@@ -1,12 +1,13 @@
 <?php namespace App\People\Models;
 
-use Melisa\Laravel\Models\BaseUuid;
+use Melisa\Laravel\Models\Base;
 
 /**
  * 
+ *
  * @author Luis Josafat Heredia Contreras
  */
-abstract class LabelsContactsAbstract extends BaseUuid
+class LabelsContactsAbstract extends Base
 {
     
     protected $connection = 'people';
@@ -19,6 +20,6 @@ abstract class LabelsContactsAbstract extends BaseUuid
     
     public $timestamps = false;
     
-    /* incrementing */
+    public $incrementing = true;
     
 }

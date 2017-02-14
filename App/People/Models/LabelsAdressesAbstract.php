@@ -7,12 +7,12 @@ use Melisa\Laravel\Models\Base;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class LabelsPhoneNumbersAbstract extends Base
+class LabelsAdressesAbstract extends Base
 {
     
     protected $connection = 'people';
     
-    protected $table = 'LabelsPhoneNumbers';
+    protected $table = 'LabelsAdresses';
     
     protected $fillable = [
         'id', 'name'
