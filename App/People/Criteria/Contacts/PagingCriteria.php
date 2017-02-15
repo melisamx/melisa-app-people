@@ -2,6 +2,7 @@
 
 use Melisa\Repositories\Criteria\Criteria;
 use Melisa\Repositories\Contracts\RepositoryInterface;
+use App\People\Models\LabelsTypes;
 
 /**
  * 
@@ -14,7 +15,8 @@ class PagingCriteria extends Criteria
     public function apply($model, RepositoryInterface $repository, array $input = [])
     {
         
-        return $model->orderBy('Contacts.name');
+        return $model
+                ->orderBy('people.name');
         
     }
     

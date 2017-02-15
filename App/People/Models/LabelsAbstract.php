@@ -6,15 +6,15 @@ use Melisa\Laravel\Models\BaseUuid;
  * 
  * @author Luis Josafat Heredia Contreras
  */
-abstract class PeopleAbstract extends BaseUuid
+abstract class LabelsAbstract extends BaseUuid
 {
     
     protected $connection = 'people';
     
-    protected $table = 'people';
+    protected $table = 'labels';
     
     protected $fillable = [
-        'id', 'name', 'firstName', 'lastName', 'nickname', 'gender', 'createdAt', 'birthday', 'updatedAt', 'idIdentityCreated', 'sex', 'active', 'idIdentityUpdated'
+        'id', 'name', 'key', 'idLabelType', 'idIdentityCreated', 'active', 'createdAt', 'updatedAt'
     ];
     
     public $timestamps = true;

@@ -5,19 +5,19 @@ use Melisa\Laravel\Logics\PagingLogics;
 use Melisa\Laravel\Logics\CreateLogic;
 use Melisa\Laravel\Logics\DeleteLogic;
 
-use App\People\Http\Requests\Labels\Contacts\PagingRequest;
-use App\People\Http\Requests\Labels\Contacts\CreateRequest;
-use App\People\Http\Requests\Labels\Contacts\DeleteRequest;
+use App\People\Http\Requests\Labels\PhoneNumbers\PagingRequest;
+use App\People\Http\Requests\Labels\PhoneNumbers\CreateRequest;
+use App\People\Http\Requests\Labels\PhoneNumbers\DeleteRequest;
 
 use App\People\Repositories\LabelsRepository;
-use App\People\Criteria\Labels\Contacts\PagingCriteria;
+use App\People\Criteria\Labels\PhoneNumbers\PagingCriteria;
 
 /**
  * 
  *
  * @author Luis Josafat Heredia Contreras
  */
-class LabelsContactsController extends Controller
+class LabelsPhoneNumbersController extends Controller
 {
     
     public function paging(PagingRequest $request, LabelsRepository $repository, PagingCriteria $criteria) {
@@ -34,7 +34,7 @@ class LabelsContactsController extends Controller
         $logic = new CreateLogic($repository);
         
         $result = $logic
-                ->setFireEvent('event.people.labels.contacts.create.success')
+                ->setFireEvent('event.people.labels.phoneNumbers.create.success')
                 ->init($request->allValid());
         
         return response()->data($result);
@@ -47,7 +47,7 @@ class LabelsContactsController extends Controller
         $logic = new DeleteLogic($repository);
         
         $result = $logic
-                ->setFireEvent('event.people.labels.contacts.delete.success')
+                ->setFireEvent('event.people.labels.phoneNumbers.delete.success')
                 ->init($request->allValid());
         
         return response()->data($result);

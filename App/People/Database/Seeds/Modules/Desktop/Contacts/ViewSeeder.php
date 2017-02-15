@@ -21,7 +21,7 @@ class ViewSeeder extends InstallSeeder
                 'nameSpace'=>'Melisa.people.view.desktop.contacts.view.Wrapper',
                 'task'=>[
                     'key'=>'task.people.contacts.view.access',
-                    'name'=>'Acceso a ver contactos de people',
+                    'name'=>'Acceso a ver contactos',
                     'description'=>'Permitir acceso a ver contactos',
                     'pattern'=>'access'
                 ],
@@ -36,7 +36,7 @@ class ViewSeeder extends InstallSeeder
                 'menu'=>[
                     [
                         'key'=>'menu.people.contacts.view.access',
-                        'name'=>'Menú crud de contacts',
+                        'name'=>'Menú crud de contactos',
                         'options'=>[
                             'option.people.contacts.add.access',
                             'option.people.contacts.update.access',

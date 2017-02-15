@@ -51,8 +51,10 @@ Ext.define('Melisa.people.view.desktop.contacts.view.Wrapper', {
                             items: [
                                 {
                                     xtype: 'treelist',
-                                    bind: '{labelsContacts}',
                                     ui: 'navigation',
+                                    bind: {
+                                        store: '{labelsContacts}'
+                                    },
                                     defaults: {
                                         indent: 15
                                     }

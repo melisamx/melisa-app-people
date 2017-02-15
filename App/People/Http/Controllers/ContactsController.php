@@ -9,7 +9,7 @@ use App\People\Http\Requests\Contacts\PagingRequest;
 use App\People\Http\Requests\Contacts\CreateRequest;
 use App\People\Http\Requests\Contacts\DeleteRequest;
 
-use App\People\Repositories\ContactsRepository;
+use App\People\Repositories\PeopleRepository;
 use App\People\Criteria\Contacts\PagingCriteria;
 
 /**
@@ -20,7 +20,7 @@ use App\People\Criteria\Contacts\PagingCriteria;
 class ContactsController extends Controller
 {
     
-    public function paging(PagingRequest $request, ContactsRepository $repository, PagingCriteria $criteria) {
+    public function paging(PagingRequest $request, PeopleRepository $repository, PagingCriteria $criteria) {
         
         $logic = new PagingLogics($repository, $criteria);
         
@@ -28,26 +28,26 @@ class ContactsController extends Controller
         
     }
     
-    public function create(CreateRequest $request, ContactsRepository $repository)
+    public function create(CreateRequest $request, PeopleRepository $repository)
     {
         
         $logic = new CreateLogic($repository);
         
         $result = $logic
-                ->setFireEvent('event.people.contacts.create.success')
+                ->setFireEvent('event.people.people.contacts.create.success')
                 ->init($request->allValid());
         
         return response()->data($result);
         
     }
     
-    public function delete(DeleteRequest $request, ContactsRepository $repository)
+    public function delete(DeleteRequest $request, PeopleRepository $repository)
     {
         
         $logic = new DeleteLogic($repository);
         
         $result = $logic
-                ->setFireEvent('event.people.contacts.delete.success')
+                ->setFireEvent('event.people.people.contacts.delete.success')
                 ->init($request->allValid());
         
         return response()->data($result);

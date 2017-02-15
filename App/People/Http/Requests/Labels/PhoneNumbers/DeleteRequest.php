@@ -1,4 +1,4 @@
-<?php namespace App\People\Http\Requests\Contacts;
+<?php namespace App\People\Http\Requests\Labels\PhoneNumbers;
 
 use Melisa\Laravel\Http\Requests\Generic;
 
@@ -11,7 +11,7 @@ class DeleteRequest extends Generic
 {
     
     protected $rules = [
-        'id'=>'bail|required|numeric|xss|exists:people,id'        
+        'id'=>'bail|required|numeric|xss|exists:Labels,id'        
     ];
     
 }
