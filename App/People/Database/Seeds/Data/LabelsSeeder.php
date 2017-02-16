@@ -18,6 +18,16 @@ class LabelsSeeder extends InstallSeeder
         $this->labelsEmails();
         $this->labelsPhoneNumbers();
         $this->labelsContacts();
+        $this->labelsAdresses();
+        
+    }
+    
+    public function labelsAdresses()
+    {
+        
+        $this->createLabel('Particular', 'Domicilios');
+        $this->createLabel('Trabajo', 'Domicilios');
+        $this->createLabel('Otro', 'Domicilios');
         
     }
     

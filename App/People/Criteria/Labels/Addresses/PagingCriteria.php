@@ -1,7 +1,8 @@
-<?php namespace App\People\Criteria\Contacts;
+<?php namespace App\People\Criteria\Labels\Addresses;
 
 use Melisa\Repositories\Criteria\Criteria;
 use Melisa\Repositories\Contracts\RepositoryInterface;
+use App\People\Models\LabelsTypes;
 
 /**
  * 
@@ -15,7 +16,10 @@ class PagingCriteria extends Criteria
     {
         
         return $model
-                ->orderBy('people.name');
+                ->join('labelsTypes as lt', 'lt.id', '=', 'labels.idLabelType')
+                ->where('lt.name', LabelsTypes::ADDRESSES)
+                ->select('labels.*')
+                ->orderBy('labels.name');
         
     }
     

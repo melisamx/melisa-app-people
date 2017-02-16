@@ -15,6 +15,8 @@ class DataSeeder extends InstallSeeder
         
         $this->call(Data\LabelsTypesSeeder::class);
         $this->call(Data\LabelsSeeder::class);
+        $this->call(Data\StatesSeeder::class);
+        $this->call(Data\MunicipalitiesSeeder::class);
         
     }
     

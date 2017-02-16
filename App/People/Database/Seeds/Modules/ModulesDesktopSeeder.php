@@ -13,9 +13,20 @@ class ModulesDesktopSeeder extends Seeder
     public function run()
     {
         
-        $this->call(Desktop\Contacts\ViewSeeder::class);
-        $this->call(Desktop\Labels\Contacts\ViewSeeder::class);
+        $this->contacts();
+        $this->labels();
         
+    }
+    
+    public function contacts()
+    {
+        $this->call(Desktop\Contacts\ViewSeeder::class);
+        $this->call(Desktop\Contacts\AddSeeder::class);
+    }
+    
+    public function labels()
+    {
+        $this->call(Desktop\Labels\Contacts\ViewSeeder::class);
     }
     
 }

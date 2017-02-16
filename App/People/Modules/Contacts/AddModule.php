@@ -20,7 +20,12 @@ class AddModule extends Outbuildings
                     'title'=>'Agregar contacto',
                 ],
                 'modules'=>[
-                    'create'=>$this->module('task.people.contacts.create'),
+                    'submit'=>$this->module('task.people.contacts.create'),
+                    'labelsEmails'=>$this->module('task.people.labels.emails.paging'),
+                    'labelsPhoneNumbers'=>$this->module('task.people.labels.phoneNumbers.paging'),
+                    'labelsAddresses'=>$this->module('task.people.labels.addresses.paging'),
+                    'states'=>$this->module('task.people.states.paging'),
+                    'municipalities'=>$this->module('task.people.municipalities.paging'),
                 ],
                 'i18n'=>[
                     'txtName'=>'Nombre',

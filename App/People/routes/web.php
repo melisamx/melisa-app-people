@@ -48,3 +48,27 @@ Route::group([
     require realpath(base_path() . '/routes/modules/labelsContacts.php');
     
 });
+
+Route::group([
+    'prefix'=>'labelsAddresses'
+], function() {
+    
+    require realpath(base_path() . '/routes/modules/labelsAddresses.php');
+    
+});
+
+Route::group([
+    'prefix'=>'states'
+], function() {
+    
+    require realpath(base_path() . '/routes/modules/states.php');
+    
+});
+
+Route::group([
+    'prefix'=>'municipalities'
+], function() {
+    
+    require realpath(base_path() . '/routes/modules/municipalities.php');
+    
+});

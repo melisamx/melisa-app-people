@@ -1,4 +1,4 @@
-<?php namespace App\People\Criteria\Contacts;
+<?php namespace App\People\Criteria\States;
 
 use Melisa\Repositories\Criteria\Criteria;
 use Melisa\Repositories\Contracts\RepositoryInterface;
@@ -15,7 +15,7 @@ class PagingCriteria extends Criteria
     {
         
         return $model
-                ->orderBy('people.name');
+                ->orderBy('states.name');
         
     }
     

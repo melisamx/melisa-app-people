@@ -23,6 +23,10 @@ class LabelsTypesSeeder extends InstallSeeder
         ]);
         
         LabelsTypes::updateOrCreate([
+            'name'=>'Domicilios'
+        ]);
+        
+        LabelsTypes::updateOrCreate([
             'name'=>'Contactos'
         ]);
         

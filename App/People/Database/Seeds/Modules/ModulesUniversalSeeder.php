@@ -15,7 +15,19 @@ class ModulesUniversalSeeder extends Seeder
         
         $this->labels();
         $this->contacts();
+        $this->states();
+        $this->municipalities();
         
+    }
+    
+    public function states()
+    {
+        $this->call(Universal\States\PagingSeeder::class);        
+    }
+    
+    public function municipalities()
+    {
+        $this->call(Universal\Municipalities\PagingSeeder::class);        
     }
     
     public function contacts()
@@ -28,6 +40,7 @@ class ModulesUniversalSeeder extends Seeder
         $this->call(Universal\Labels\Contacts\PagingSeeder::class);
         $this->call(Universal\Labels\Emails\PagingSeeder::class);
         $this->call(Universal\Labels\PhoneNumbers\PagingSeeder::class);
+        $this->call(Universal\Labels\Addresses\PagingSeeder::class);
         
     }
     
