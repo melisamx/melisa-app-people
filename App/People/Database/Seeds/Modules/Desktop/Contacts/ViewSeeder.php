@@ -43,6 +43,10 @@ class ViewSeeder extends InstallSeeder
                             'option.people.contacts.remove.access',
                         ]
                     ]
+                ],
+                'event'=>[
+                    'key'=>'event.people.contacts.view.access',
+                    'description'=>'Acceso al módulo ver contactos'
                 ]
             ],
         ]);

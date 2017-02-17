@@ -1,4 +1,4 @@
-<?php namespace App\People\Http\Requests\Contacts;
+<?php namespace App\People\Http\Requests\BloodTypes;
 
 use Melisa\Laravel\Http\Requests\WithFilter;
 
@@ -13,12 +13,7 @@ class PagingRequest extends WithFilter
         'page'=>'bail|required|xss|numeric',
         'start'=>'bail|required|xss|numeric',
         'limit'=>'bail|required|xss|numeric',
-        'filter'=>'bail|sometimes|json|filter:name',
-        'query'=>'bail|sometimes|xss'
-    ];
-    
-    public $rulesFilters = [
-        'name'=>'bail|sometimes|max:36|xss',
+        'query'=>'bail|sometimes|xss',
     ];
     
 }

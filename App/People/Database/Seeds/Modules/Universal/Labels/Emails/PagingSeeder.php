@@ -24,6 +24,10 @@ class PagingSeeder extends InstallSeeder
                     'description'=>'Permitir paginar lista de etiquetas de correos electrónicos',
                     'pattern'=>'read'
                 ],
+                'event'=>[
+                    'key'=>'event.people.labels.emails.paging.success',
+                    'description'=>'Listado de etiquetas de correos electrónicos paginado sastisfactoriamente'
+                ]
             ],
         ]);
         

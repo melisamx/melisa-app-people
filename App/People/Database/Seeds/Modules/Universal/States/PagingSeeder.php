@@ -24,6 +24,10 @@ class PagingSeeder extends InstallSeeder
                     'description'=>'Permitir paginar lista de estados',
                     'pattern'=>'read'
                 ],
+                'event'=>[
+                    'key'=>'event.people.states.paging.success',
+                    'description'=>'Listado de estados paginado sastisfactoriamente'
+                ]
             ],
         ]);
         

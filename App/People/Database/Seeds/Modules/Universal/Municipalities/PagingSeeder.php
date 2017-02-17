@@ -24,6 +24,10 @@ class PagingSeeder extends InstallSeeder
                     'description'=>'Permitir paginar lista de municipios',
                     'pattern'=>'read'
                 ],
+                'event'=>[
+                    'key'=>'event.people.municipalities.paging.success',
+                    'description'=>'Listado de municipios paginado sastisfactoriamente'
+                ]
             ],
         ]);
         

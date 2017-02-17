@@ -1,13 +1,9 @@
 Ext.define('Melisa.people.view.desktop.contacts.add.WrapperController', {
-    extend: 'Melisa.core.ViewController',
+    extend: 'Melisa.controller.Create',
     alias: 'controller.peoplepeopleadd',
     
     requires: [
         'Melisa.controller.Create',
-    ],
-    
-    mixins: [
-        'Melisa.controller.Create'
     ]
     
 });

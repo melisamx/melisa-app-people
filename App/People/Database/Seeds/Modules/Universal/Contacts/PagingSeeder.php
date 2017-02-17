@@ -24,6 +24,10 @@ class PagingSeeder extends InstallSeeder
                     'description'=>'Permitir paginar lista de contactos',
                     'pattern'=>'read'
                 ],
+                'event'=>[
+                    'key'=>'event.people.contacts.paging.success',
+                    'description'=>'Listado de contactos paginado sastisfactoriamente'
+                ]
             ],
         ]);
         

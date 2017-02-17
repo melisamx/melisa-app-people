@@ -13,13 +13,20 @@ class CreateRequest extends Generic
     use BeforeSanitize;
     
     protected $rules = [
-        'id'=>'bail|required|xss|numeric|unique:scopes',
-        'name'=>'bail|required|alpha_dash|max:75|xss',
-        'active'=>'bail|required|xss|boolean',        
+        'name'=>'bail|required|max:45|xss',
+        'lastName'=>'bail|required|max:45|xss',
+        'sex'=>'bail|required|xss|boolean',
+        'active'=>'bail|required|xss|boolean',
+        'nickName'=>'bail|sometimes|max:45|xss',
+        'nss'=>'bail|sometimes|max:11|xss|alpha_num',
+        'curp'=>'bail|sometimes|max:18|xss|alpha_num',
+        'rfc'=>'bail|sometimes|max:13|xss|alpha_num',
+        'idBloodType'=>'bail|sometimes|xss|integer|exists:people.bloodTypes,id',
     ];
     
     protected $sanitizes = [
-        'active'=>'boolean'
+        'active'=>'boolean',
+        'sex'=>'boolean',
     ];
     
 }

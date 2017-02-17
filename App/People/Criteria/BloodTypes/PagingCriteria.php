@@ -1,4 +1,4 @@
-<?php namespace App\People\Criteria\Contacts;
+<?php namespace App\People\Criteria\BloodTypes;
 
 use Melisa\Repositories\Criteria\Criteria;
 use Melisa\Repositories\Contracts\RepositoryInterface;
@@ -17,11 +17,13 @@ class PagingCriteria extends Criteria
         $builder = $model;
         
         if( isset($input['query'])) {
-            return $builder->where('name', 'like', '%' . $input['query'] . '%');
+            
+            $builder = $builder->where('name', 'like', '%' . $input['query'] . '%');
+            
         }
         
         return $builder
-                ->orderBy('people.name');
+                ->orderBy('bloodTypes.name');
         
     }
     

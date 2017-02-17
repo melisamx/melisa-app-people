@@ -29,6 +29,10 @@ class AddSeeder extends InstallSeeder
                     'key'=>'option.people.contacts.add.access',
                     'name'=>'Opción para agregar contacto',
                     'text'=>'Agregar contacto'
+                ],
+                'event'=>[
+                    'key'=>'event.people.contacts.add.access',
+                    'description'=>'Acceso al módulo agregar contactos'
                 ]
             ],
         ]);

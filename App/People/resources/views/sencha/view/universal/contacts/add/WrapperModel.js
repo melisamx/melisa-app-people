@@ -68,6 +68,18 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperModel', {
                     rootProperty: 'data'
                 }
             }
+        },
+        bloodTypes: {
+            remoteFilter: true,
+            remoteSort: true,
+            proxy: {
+                type: 'ajax',
+                url: '{modules.bloodTypes}',
+                reader: {
+                    type: 'json',
+                    rootProperty: 'data'
+                }
+            }
         }
     }
     

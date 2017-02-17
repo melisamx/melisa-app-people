@@ -72,3 +72,11 @@ Route::group([
     require realpath(base_path() . '/routes/modules/municipalities.php');
     
 });
+
+Route::group([
+    'prefix'=>'bloodTypes'
+], function() {
+    
+    require realpath(base_path() . '/routes/modules/bloodTypes.php');
+    
+});

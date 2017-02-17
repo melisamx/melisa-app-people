@@ -50,10 +50,6 @@ Ext.define('Melisa.people.view.desktop.contacts.add.Wrapper', {
                                     title: 'Correos electronicos',
                                     items: [
                                         {
-                                            region: 'center',
-                                            xtype: 'peoplepeopleemailsgrid'
-                                        },
-                                        {
                                             region: 'west',
                                             width: '25%',
                                             split: true,
@@ -68,16 +64,16 @@ Ext.define('Melisa.people.view.desktop.contacts.add.Wrapper', {
                                                     }
                                                 ]
                                             }
+                                        },
+                                        {
+                                            region: 'center',
+                                            xtype: 'peoplepeopleemailsgrid'
                                         }
                                     ]
                                 },
                                 {
                                     title: 'Números telefónicos',
                                     items: [
-                                        {
-                                            region: 'center',
-                                            xtype: 'peoplepeoplephonenumbersgrid'
-                                        },
                                         {
                                             region: 'west',
                                             width: '25%',
@@ -93,16 +89,16 @@ Ext.define('Melisa.people.view.desktop.contacts.add.Wrapper', {
                                                     }
                                                 ]
                                             }
+                                        },
+                                        {
+                                            region: 'center',
+                                            xtype: 'peoplepeoplephonenumbersgrid'
                                         }
                                     ]
                                 },
                                 {
                                     title: 'Direcciones',
                                     items: [
-                                        {
-                                            region: 'center',
-                                            xtype: 'peoplepeopleaddressesgrid'
-                                        },
                                         {
                                             region: 'west',
                                             width: '25%',
@@ -118,6 +114,10 @@ Ext.define('Melisa.people.view.desktop.contacts.add.Wrapper', {
                                                     }
                                                 ]
                                             }
+                                        },
+                                        {
+                                            region: 'center',
+                                            xtype: 'peoplepeopleaddressesgrid'
                                         }
                                     ]
                                 }

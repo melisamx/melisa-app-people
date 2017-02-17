@@ -24,6 +24,10 @@ class PagingSeeder extends InstallSeeder
                     'description'=>'Permitir paginar lista de etiquetas de números telefónicos',
                     'pattern'=>'read'
                 ],
+                'event'=>[
+                    'key'=>'event.people.labels.phoneNumbers.paging.success',
+                    'description'=>'Listado de etiquetas de numeros telefónicos paginado sastisfactoriamente'
+                ]
             ],
         ]);
         

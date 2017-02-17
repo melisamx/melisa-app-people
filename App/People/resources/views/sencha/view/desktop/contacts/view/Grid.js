@@ -25,6 +25,11 @@ Ext.define('Melisa.people.view.desktop.contacts.view.Grid', {
             flex: 1
         },
         {
+            dataIndex: 'lastName',
+            text: 'Apellidos',
+            flex: 1
+        },
+        {
             dataIndex: 'email',
             text: 'Correo electronico',
             flex: 1

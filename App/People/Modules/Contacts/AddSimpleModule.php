@@ -7,8 +7,10 @@ use App\Core\Logics\Modules\Outbuildings;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class AddModule extends Outbuildings
+class AddSimpleModule extends Outbuildings
 {
+    
+    public $event = 'event.people.contacts.addSimple.access';
     
     public function dataDictionary() {
         
@@ -17,15 +19,10 @@ class AddModule extends Outbuildings
             'data'=>[
                 'token'=>csrf_token(),
                 'wrapper'=>[
-                    'title'=>'Agregar contacto',
+                    'title'=>'Agregar persona',
                 ],
                 'modules'=>[
-                    'submit'=>$this->module('task.people.contacts.create'),
-                    'labelsEmails'=>$this->module('task.people.labels.emails.paging'),
-                    'labelsPhoneNumbers'=>$this->module('task.people.labels.phoneNumbers.paging'),
-                    'labelsAddresses'=>$this->module('task.people.labels.addresses.paging'),
-                    'states'=>$this->module('task.people.states.paging'),
-                    'municipalities'=>$this->module('task.people.municipalities.paging'),
+                    'submit'=>$this->module('task.people.contacts.simple.create'),
                     'bloodTypes'=>$this->module('task.people.bloodTypes.paging'),
                 ],
                 'i18n'=>[

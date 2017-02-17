@@ -24,6 +24,10 @@ class PagingSeeder extends InstallSeeder
                     'description'=>'Permitir paginar lista de etiquetas de domicilios',
                     'pattern'=>'read'
                 ],
+                'event'=>[
+                    'key'=>'event.people.labels.addresses.paging.success',
+                    'description'=>'Listado de etiquetas de direcciones paginado sastisfactoriamente'
+                ]
             ],
         ]);
         

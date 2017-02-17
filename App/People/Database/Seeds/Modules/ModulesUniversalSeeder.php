@@ -17,7 +17,13 @@ class ModulesUniversalSeeder extends Seeder
         $this->contacts();
         $this->states();
         $this->municipalities();
+        $this->bloodTypes();
         
+    }
+    
+    public function bloodTypes()
+    {
+        $this->call(Universal\BloodTypes\PagingSeeder::class);        
     }
     
     public function states()
@@ -33,6 +39,8 @@ class ModulesUniversalSeeder extends Seeder
     public function contacts()
     {
         $this->call(Universal\Contacts\PagingSeeder::class);        
+        $this->call(Universal\Contacts\CreateSeeder::class);        
+        $this->call(Universal\Contacts\CreateSimpleSeeder::class);        
     }
     
     public function labels()

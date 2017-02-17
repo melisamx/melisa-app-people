@@ -12,6 +12,8 @@ use App\People\Http\Requests\Contacts\DeleteRequest;
 use App\People\Repositories\PeopleRepository;
 use App\People\Criteria\Contacts\PagingCriteria;
 
+use App\People\Logics\Contacts\CreateLogic as ContactCreateLogic;
+
 /**
  * 
  *
@@ -28,13 +30,22 @@ class ContactsController extends Controller
         
     }
     
-    public function create(CreateRequest $request, PeopleRepository $repository)
+    public function create(CreateRequest $request, PeopleRepository $repository, ContactCreateLogic $logic)
+    {
+        
+        $result = $logic->init($request->allValid());
+        
+        return response()->data($result);
+        
+    }
+    
+    public function createSimple(CreateRequest $request, PeopleRepository $repository)
     {
         
         $logic = new CreateLogic($repository);
         
         $result = $logic
-                ->setFireEvent('event.people.people.contacts.create.success')
+                ->setFireEvent('event.people.people.contacts.simple.create.success')
                 ->init($request->allValid());
         
         return response()->data($result);
