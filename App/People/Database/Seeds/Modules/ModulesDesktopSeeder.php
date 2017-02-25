@@ -15,7 +15,19 @@ class ModulesDesktopSeeder extends Seeder
         
         $this->contacts();
         $this->labels();
+        $this->states();
+        $this->municipalities();
         
+    }
+    
+    public function municipalities()
+    {
+        $this->call(Desktop\Municipalities\AddSeeder::class);
+    }
+    
+    public function states()
+    {
+        $this->call(Desktop\States\AddSeeder::class);
     }
     
     public function contacts()

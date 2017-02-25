@@ -29,8 +29,22 @@ Ext.define('Melisa.people.view.desktop.people.addresses.Form', {
             name: 'idState',
             reference: 'cmbStates',
             fieldLabel: 'Estado',
+            forceSelection: true,
+            typeAhead: true,
+            listConfig: {
+                emptyText: 'Estado no encontrado'
+            },
             bind: {
-                store: '{states}'
+                store: '{states}',
+                melisa: '{modules.statesAdd}',
+                disabled: '{!modules.statesAdd.allowed}'
+            },
+            triggers: {
+                other: {
+                    cls: 'x-form-trigger-default x-fa fa-plus',
+                    handler: 'moduleRun',
+                    focusOnMousedown: true
+                }
             }
         },
         {
@@ -38,7 +52,16 @@ Ext.define('Melisa.people.view.desktop.people.addresses.Form', {
             name: 'idMunicipality',
             fieldLabel: 'Municipio',
             bind: {
-                store: '{municipalities}'
+                store: '{municipalities}',
+                melisa: '{modules.municipalitiesAdd}',
+                disabled: '{!modules.municipalitiesAdd.allowed}'
+            },
+            triggers: {
+                other: {
+                    cls: 'x-form-trigger-default x-fa fa-plus',
+                    handler: 'moduleRun',
+                    focusOnMousedown: true
+                }
             }
         }
     ]

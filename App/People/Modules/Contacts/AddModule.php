@@ -25,7 +25,9 @@ class AddModule extends Outbuildings
                     'labelsPhoneNumbers'=>$this->module('task.people.labels.phoneNumbers.paging'),
                     'labelsAddresses'=>$this->module('task.people.labels.addresses.paging'),
                     'states'=>$this->module('task.people.states.paging'),
+                    'statesAdd'=>$this->module('task.people.states.add.access', false),
                     'municipalities'=>$this->module('task.people.municipalities.paging'),
+                    'municipalitiesAdd'=>$this->module('task.people.municipalities.add.access', false),
                     'bloodTypes'=>$this->module('task.people.bloodTypes.paging'),
                 ],
                 'i18n'=>[

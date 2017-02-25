@@ -29,6 +29,7 @@ class ModulesUniversalSeeder extends Seeder
     public function states()
     {
         $this->call(Universal\States\PagingSeeder::class);        
+        $this->call(Universal\States\CreateSeeder::class);        
     }
     
     public function municipalities()
