@@ -2,6 +2,9 @@ Ext.define('Melisa.people.view.desktop.people.emails.Grid', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.peoplepeopleemailsgrid',
     
+    bind: {
+        store: '{emails}'
+    },
     emptyText: 'Sin correos electronicos',
     columns: [
         {
@@ -18,5 +21,11 @@ Ext.define('Melisa.people.view.desktop.people.emails.Grid', {
     bbar: {
         xtype: 'pagingtoolbar',
         displayInfo: true
-    }
+    },
+    tbar: [
+        {
+            iconCls: 'x-fa fa-trash',
+            handler: 'onClickBtnRemoveRecord'
+        }
+    ]
 });

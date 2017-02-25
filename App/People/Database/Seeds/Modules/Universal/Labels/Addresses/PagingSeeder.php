@@ -16,7 +16,7 @@ class PagingSeeder extends InstallSeeder
         $this->installModule([
             [
                 'name'=>'Paginar lista de etiquetas de domicilios',
-                'url'=>'/people.php/addresses/',
+                'url'=>'/people.php/labelsAddresses/',
                 'description'=>'Módulo para paginar lista de etiquetas de domicilios',
                 'task'=>[
                     'key'=>'task.people.labels.addresses.paging',

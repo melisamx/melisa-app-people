@@ -60,14 +60,16 @@ Ext.define('Melisa.people.view.desktop.contacts.add.Wrapper', {
                                                     '->',
                                                     {
                                                         text: 'Agregar',
-                                                        iconCls: 'x-fa fa-plus'
+                                                        iconCls: 'x-fa fa-plus',
+                                                        handler: 'onClickBtnAddEmail'
                                                     }
                                                 ]
                                             }
                                         },
                                         {
                                             region: 'center',
-                                            xtype: 'peoplepeopleemailsgrid'
+                                            xtype: 'peoplepeopleemailsgrid',
+                                            bbar: null
                                         }
                                     ]
                                 },
@@ -85,7 +87,8 @@ Ext.define('Melisa.people.view.desktop.contacts.add.Wrapper', {
                                                     '->',
                                                     {
                                                         text: 'Agregar',
-                                                        iconCls: 'x-fa fa-plus'
+                                                        iconCls: 'x-fa fa-plus',
+                                                        handler: 'onClickBtnAddPhoneNumber'
                                                     }
                                                 ]
                                             }
@@ -110,7 +113,8 @@ Ext.define('Melisa.people.view.desktop.contacts.add.Wrapper', {
                                                     '->',
                                                     {
                                                         text: 'Agregar',
-                                                        iconCls: 'x-fa fa-plus'
+                                                        iconCls: 'x-fa fa-plus',
+                                                        handler: 'onClickBtnAddAddress'
                                                     }
                                                 ]
                                             }
@@ -126,6 +130,24 @@ Ext.define('Melisa.people.view.desktop.contacts.add.Wrapper', {
                     ]
                 }
             ]
+        },
+        {
+            xtype: 'textfield',
+            reference: 'txtEmails',
+            name: 'emails',
+            hidden: true
+        },
+        {
+            xtype: 'textfield',
+            reference: 'txtPhoneNumbers',
+            name: 'phoneNumbers',
+            hidden: true
+        },
+        {
+            xtype: 'textfield',
+            reference: 'txtAddresses',
+            name: 'addresses',
+            hidden: true
         }
     ],
     bbar: {

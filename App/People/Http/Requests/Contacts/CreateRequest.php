@@ -22,6 +22,9 @@ class CreateRequest extends Generic
         'curp'=>'bail|sometimes|max:18|xss|alpha_num',
         'rfc'=>'bail|sometimes|max:13|xss|alpha_num',
         'idBloodType'=>'bail|sometimes|xss|integer|exists:people.bloodTypes,id',
+        'emails'=>'bail|sometimes|xss|json',
+        'phoneNumbers'=>'bail|sometimes|xss|json',
+        'addresses'=>'bail|sometimes|xss|json',
     ];
     
     protected $sanitizes = [

@@ -15,10 +15,22 @@ class ModulesUniversalSeeder extends Seeder
         
         $this->labels();
         $this->contacts();
+        $this->contactsEmails();
+        $this->contactsPhoneNumbers();
         $this->states();
         $this->municipalities();
         $this->bloodTypes();
         
+    }
+    
+    public function contactsPhoneNumbers()
+    {
+        $this->call(Universal\Contacts\PhoneNumbers\PagingSeeder::class);        
+    }
+    
+    public function contactsEmails()
+    {
+        $this->call(Universal\Contacts\Emails\PagingSeeder::class);        
     }
     
     public function bloodTypes()

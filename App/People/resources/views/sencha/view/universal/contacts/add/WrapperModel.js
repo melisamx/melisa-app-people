@@ -3,6 +3,42 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperModel', {
     alias: 'viewmodel.peoplepeopleadd',
         
     stores: {
+        addresses: {
+            remoteFilter: false,
+            remoteSort: false,
+            proxy: {
+                type: 'ajax',
+                url: '{modules.contactsAddresses}',
+                reader: {
+                    type: 'json',
+                    rootProperty: 'data'
+                }
+            }
+        },
+        emails: {
+            remoteFilter: false,
+            remoteSort: false,
+            proxy: {
+                type: 'ajax',
+                url: '{modules.contactsEmails}',
+                reader: {
+                    type: 'json',
+                    rootProperty: 'data'
+                }
+            }
+        },
+        phoneNumbers: {
+            remoteFilter: false,
+            remoteSort: false,
+            proxy: {
+                type: 'ajax',
+                url: '{modules.contactsPhoneNumbers}',
+                reader: {
+                    type: 'json',
+                    rootProperty: 'data'
+                }
+            }
+        },
         labelsEmails: {
             remoteFilter: true,
             remoteSort: true,
@@ -15,12 +51,12 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperModel', {
                 }
             }
         },
-        labelsAddress: {
+        labelsAddresses: {
             remoteFilter: true,
             remoteSort: true,
             proxy: {
                 type: 'ajax',
-                url: '{modules.labelsAddress}',
+                url: '{modules.labelsAddresses}',
                 reader: {
                     type: 'json',
                     rootProperty: 'data'

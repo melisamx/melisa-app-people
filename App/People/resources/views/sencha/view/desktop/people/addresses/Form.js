@@ -51,6 +51,7 @@ Ext.define('Melisa.people.view.desktop.people.addresses.Form', {
             xtype: 'combodefault',
             name: 'idMunicipality',
             fieldLabel: 'Municipio',
+            reference: 'cmbMunicipalities',
             bind: {
                 store: '{municipalities}',
                 melisa: '{modules.municipalitiesAdd}',
@@ -62,6 +63,15 @@ Ext.define('Melisa.people.view.desktop.people.addresses.Form', {
                     handler: 'moduleRun',
                     focusOnMousedown: true
                 }
+            }
+        },
+        {
+            xtype: 'combodefault',
+            fieldLabel: 'Etiqueta',
+            name: 'idLabel',
+            reference: 'cmbLabelsAddresses',
+            bind: {
+                store: '{labelsAddresses}'
             }
         }
     ]

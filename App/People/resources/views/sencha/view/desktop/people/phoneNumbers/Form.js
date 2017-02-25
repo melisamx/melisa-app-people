@@ -11,14 +11,14 @@ Ext.define('Melisa.people.view.desktop.people.phoneNumbers.Form', {
     },
     items: [
         {
-            xtype: 'textfield',
+            xtype: 'numberfield',
             name: 'number',
-            vtype: 'alphanum',
             fieldLabel: 'Número telefónico'
         },
         {
             xtype: 'combodefault',
             fieldLabel: 'Etiqueta',
+            name: 'idLabel',
             bind: {
                 store: '{labelsPhoneNumbers}'
             }

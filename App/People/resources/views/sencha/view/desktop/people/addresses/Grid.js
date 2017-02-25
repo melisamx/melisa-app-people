@@ -2,7 +2,10 @@ Ext.define('Melisa.people.view.desktop.people.addresses.Grid', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.peoplepeopleaddressesgrid',
     
-    emptyText: 'Sin domicilios',
+    bind: {
+        store: '{addresses}'
+    },
+    emptyText: 'Sin direcciones',
     columns: [
         {
             text: 'Estado',
@@ -23,5 +26,11 @@ Ext.define('Melisa.people.view.desktop.people.addresses.Grid', {
     bbar: {
         xtype: 'pagingtoolbar',
         displayInfo: true
-    }
+    },
+    tbar: [
+        {
+            iconCls: 'x-fa fa-trash',
+            handler: 'onClickBtnRemoveRecord'
+        }
+    ]
 });

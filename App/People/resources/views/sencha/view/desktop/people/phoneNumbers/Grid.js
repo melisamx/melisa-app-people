@@ -2,11 +2,14 @@ Ext.define('Melisa.people.view.desktop.people.phoneNumbers.Grid', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.peoplepeoplephonenumbersgrid',
     
+    bind: {
+        store: '{phoneNumbers}'
+    },
     emptyText: 'Sin numeros telefonicos',
     columns: [
         {
             text: 'Numero',
-            dataIndex: 'numero',
+            dataIndex: 'number',
             flex: 1
         },
         {
@@ -18,5 +21,11 @@ Ext.define('Melisa.people.view.desktop.people.phoneNumbers.Grid', {
     bbar: {
         xtype: 'pagingtoolbar',
         displayInfo: true
-    }
+    },
+    tbar: [
+        {
+            iconCls: 'x-fa fa-trash',
+            handler: 'onClickBtnRemoveRecord'
+        }
+    ]
 });
