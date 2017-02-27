@@ -28,6 +28,7 @@ class ModulesDesktopSeeder extends Seeder
     public function states()
     {
         $this->call(Desktop\States\AddSeeder::class);
+        $this->call(Desktop\States\ViewSeeder::class);
     }
     
     public function contacts()
