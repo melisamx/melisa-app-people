@@ -12,7 +12,9 @@ Ext.define('Melisa.people.view.desktop.contacts.add.Wrapper', {
         'Melisa.people.view.desktop.people.phoneNumbers.Grid',
         'Melisa.people.view.desktop.people.addresses.Grid',
         'Melisa.people.view.universal.contacts.add.WrapperModel',
-        'Melisa.people.view.desktop.contacts.add.WrapperController'
+        'Melisa.people.view.desktop.contacts.add.WrapperController',
+        'Melisa.people.view.desktop.people.files.Form',
+        'Melisa.people.view.desktop.people.files.Grid'
     ],
     
     mixins: [
@@ -128,6 +130,33 @@ Ext.define('Melisa.people.view.desktop.contacts.add.Wrapper', {
                             ]
                         }
                     ]
+                },
+                {
+                    title: 'Documentos',
+                    layout: 'border',
+                    items: [
+                        {
+                            region: 'west',
+                            width: '25%',
+                            split: true,
+                            xtype: 'peoplepeoplefilesform',
+                            bbar: {
+                                xtype: 'toolbar',
+                                items: [
+                                    '->',
+                                    {
+                                        text: 'Agregar',
+                                        iconCls: 'x-fa fa-plus',
+                                        handler: 'onClickBtnAddDocument'
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            region: 'center',
+                            xtype: 'peoplepeoplefilesgrid'
+                        }
+                    ]
                 }
             ]
         },
@@ -147,6 +176,12 @@ Ext.define('Melisa.people.view.desktop.contacts.add.Wrapper', {
             xtype: 'textfield',
             reference: 'txtAddresses',
             name: 'addresses',
+            hidden: true
+        },
+        {
+            xtype: 'textfield',
+            reference: 'txtFiles',
+            name: 'files',
             hidden: true
         }
     ],

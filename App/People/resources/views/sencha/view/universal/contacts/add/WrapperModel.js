@@ -3,6 +3,18 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperModel', {
     alias: 'viewmodel.peoplepeopleadd',
         
     stores: {
+        files: {
+            remoteFilter: false,
+            remoteSort: false,
+            proxy: {
+                type: 'ajax',
+                url: '{modules.contactsFiles}',
+                reader: {
+                    type: 'json',
+                    rootProperty: 'data'
+                }
+            }
+        },
         addresses: {
             remoteFilter: false,
             remoteSort: false,
@@ -111,6 +123,18 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperModel', {
             proxy: {
                 type: 'ajax',
                 url: '{modules.bloodTypes}',
+                reader: {
+                    type: 'json',
+                    rootProperty: 'data'
+                }
+            }
+        },
+        filesTypes: {
+            remoteFilter: true,
+            remoteSort: true,
+            proxy: {
+                type: 'ajax',
+                url: '{modules.filesTypes}',
                 reader: {
                     type: 'json',
                     rootProperty: 'data'

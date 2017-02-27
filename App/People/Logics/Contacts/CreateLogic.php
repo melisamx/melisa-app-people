@@ -4,6 +4,7 @@ use App\People\Repositories\PeopleRepository;
 use App\People\Repositories\PeopleEmailsRepository;
 use App\People\Repositories\PeoplePhoneNumbersRepository;
 use App\People\Repositories\PeopleAddressesRepository;
+use App\People\Repositories\PeopleFilesRepository;
 use Melisa\core\LogicBusiness;
 
 /**
@@ -19,18 +20,21 @@ class CreateLogic
     protected $peopleEmailsRepository;
     protected $peoplePhoneNumbersRepository;
     protected $peopleAddressesRepository;
+    protected $peopleFilesRepository;
 
     public function __construct(
-          PeopleRepository $peopleRepository,
-          PeopleEmailsRepository $peopleEmailsRepository,
-          PeoplePhoneNumbersRepository $peoplePhoneNumbersRepository,
-          PeopleAddressesRepository $peopleAddressesRepository
+            PeopleRepository $peopleRepository,
+            PeopleEmailsRepository $peopleEmailsRepository,
+            PeoplePhoneNumbersRepository $peoplePhoneNumbersRepository,
+            PeopleAddressesRepository $peopleAddressesRepository,
+            PeopleFilesRepository $peopleFilesRepository
         )
     {
         $this->peopleRepository = $peopleRepository;
         $this->peopleEmailsRepository = $peopleEmailsRepository;
         $this->peoplePhoneNumbersRepository = $peoplePhoneNumbersRepository;
         $this->peopleAddressesRepository = $peopleAddressesRepository;
+        $this->peopleFilesRepository = $peopleFilesRepository;
     }
     
     public function init($input = [])
@@ -88,7 +92,47 @@ class CreateLogic
             $event ['idAddresses']= $idAddresses;
         }
         
+        $idFiles = $this->createFiles($idPeople, $input['files']);
+        
+        if( $idFiles === false) {
+            return false;
+        } else if( !empty($idFiles)) {
+            $event ['idFiles']= $idFiles;
+        }
+        
         return true;
+        
+    }
+    
+    public function createFiles($idPeople, $input)
+    {
+        
+        $records = json_decode($input);
+        
+        if( empty($records)) {
+            return [];
+        }
+        
+        $ids = [];
+        $idIdentity = $this->getIdentity();
+        foreach($records as $record) {
+            
+            $result = $this->peopleFilesRepository->create([
+                'idPeople'=>$idPeople,
+                'idIdentityCreated'=>$idIdentity,
+                'idFile'=>$record->idFile,
+                'idFileType'=>$record->idFileType,
+            ]);
+            
+            if( !$result) {
+                return false;
+            }
+            
+            $ids []= $result;
+            
+        }
+        
+        return $ids;
         
     }
     

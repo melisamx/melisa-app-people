@@ -37,7 +37,8 @@ Ext.define('Melisa.people.view.desktop.people.Form', {
                 {
                     xtype: 'combosex',
                     name: 'sex',
-                    fieldLabel: 'Sexo'
+                    fieldLabel: 'Sexo',
+                    allowBlank: false
                 }
             ]
         },

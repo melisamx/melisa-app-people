@@ -11,6 +11,31 @@ Ext.define('Melisa.people.view.desktop.contacts.add.WrapperController', {
         universal: 'Melisa.people.view.universal.contacts.add.WrapperController'
     },
     
+    listeners: {
+        selectfiledocument: 'onSelectDocument'
+    },
+    
+    onSelectDocument: function(record) {
+        
+        var me = this,
+            txtFile = me.lookup('txtFile'),
+            txtFileName = me.lookup('txtFileName');
+    
+        txtFile.setValue(record.get('id'));
+        txtFileName.setValue(record.get('name'));
+        
+    },
+    
+    onLoadedDocumentSelect: function(module, options) {
+        
+        module.fireEvent('loaddata', this, 'selectfiledocument', {}, options.launcher);
+        
+    },
+    
+    onClickBtnAddDocument: function(button) {
+        this.addItemDetail(button, 'addFile');
+    },
+    
     onClickBtnRemoveRecord: function(button) {
         
         var grid = button.up('grid'),
@@ -20,22 +45,16 @@ Ext.define('Melisa.people.view.desktop.contacts.add.WrapperController', {
         
     },
     
-    onClickBtnAddEmail: function(button) {
-        
-        this.addItemDetail(button, 'addEmail');
-        
+    onClickBtnAddEmail: function(button) {        
+        this.addItemDetail(button, 'addEmail');        
     },
     
-    onClickBtnAddAddress: function(button) {
-        
-        this.addItemDetail(button, 'addAddress');
-        
+    onClickBtnAddAddress: function(button) {        
+        this.addItemDetail(button, 'addAddress');        
     },
     
-    onClickBtnAddPhoneNumber: function(button) {
-        
-        this.addItemDetail(button, 'addPhoneNumber');
-        
+    onClickBtnAddPhoneNumber: function(button) {        
+        this.addItemDetail(button, 'addPhoneNumber');        
     },
     
     addItemDetail: function(button, name) {
@@ -68,47 +87,9 @@ Ext.define('Melisa.people.view.desktop.contacts.add.WrapperController', {
     
     save: function() {
         
-        var me = this,
-            vm = me.getViewModel(),
-            stoEmails = vm.getStore('emails'),
-            stoPhoneNumbers = vm.getStore('phoneNumbers'),
-            stoAddresses = vm.getStore('addresses'),
-            txtEmails = me.lookup('txtEmails'),
-            txtPhoneNumbers = me.lookup('txtPhoneNumbers'),
-            txtAddresses = me.lookup('txtAddresses'),
-            idEmails = [],
-            idAddresses = [],
-            idPhoneNumbers = [];
+        var me = this;
         
-        stoEmails.each(function(record) {            
-            idEmails.push({
-                email: record.get('email'),
-                idLabel: record.get('idLabel')
-            });            
-        });
-        
-        stoPhoneNumbers.each(function(record) {            
-            idPhoneNumbers.push({
-                number: record.get('number'),
-                idLabel: record.get('idLabel')
-            });            
-        });
-        
-        stoAddresses.each(function(record) {            
-            idAddresses.push({
-                street: record.get('street'),
-                idState: record.get('idState'),
-                idMunicipality: record.get('idMunicipality'),
-                postalCode: record.get('postalCode'),
-                colony: record.get('colony'),
-                idLabel: record.get('idLabel')
-            });
-        });
-        
-        txtEmails.setValue(Ext.encode(idEmails));
-        txtPhoneNumbers.setValue(Ext.encode(idPhoneNumbers));
-        txtAddresses.setValue(Ext.encode(idAddresses));
-        
+        me.mixins.universal.beforeSave.call(me);
         me.callParent();
         
     }

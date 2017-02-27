@@ -25,6 +25,7 @@ class AddModule extends Outbuildings
                     'contactsEmails'=>$this->module('task.people.contacts.emails.paging'),
                     'contactsPhoneNumbers'=>$this->module('task.people.contacts.phoneNumbers.paging'),
                     'contactsAddresses'=>$this->module('task.people.contacts.addresses.paging'),
+                    'contactsFiles'=>$this->module('task.people.contacts.files.paging'),
                     'labelsPhoneNumbers'=>$this->module('task.people.labels.phoneNumbers.paging'),
                     'labelsAddresses'=>$this->module('task.people.labels.addresses.paging'),
                     'states'=>$this->module('task.people.states.paging'),
@@ -32,6 +33,8 @@ class AddModule extends Outbuildings
                     'municipalities'=>$this->module('task.people.municipalities.paging'),
                     'municipalitiesAdd'=>$this->module('task.people.municipalities.add.access', false),
                     'bloodTypes'=>$this->module('task.people.bloodTypes.paging'),
+                    'filesSelect'=>$this->module('task.drive.files.select.access', false),
+                    'filesTypes'=>$this->module('task.people.filesTypes.paging'),
                 ],
                 'i18n'=>[
                     'txtName'=>'Nombre',

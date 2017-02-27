@@ -25,6 +25,7 @@ class CreateRequest extends Generic
         'emails'=>'bail|sometimes|xss|json',
         'phoneNumbers'=>'bail|sometimes|xss|json',
         'addresses'=>'bail|sometimes|xss|json',
+        'files'=>'bail|sometimes|xss|json',
     ];
     
     protected $sanitizes = [

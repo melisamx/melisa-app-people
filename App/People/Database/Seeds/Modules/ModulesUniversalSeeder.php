@@ -20,7 +20,19 @@ class ModulesUniversalSeeder extends Seeder
         $this->states();
         $this->municipalities();
         $this->bloodTypes();
+        $this->filesTypes();
+        $this->contactsFiles();
         
+    }
+    
+    public function contactsFiles()
+    {
+        $this->call(Universal\Contacts\Files\PagingSeeder::class);        
+    }
+    
+    public function filesTypes()
+    {
+        $this->call(Universal\FilesTypes\PagingSeeder::class);        
     }
     
     public function contactsPhoneNumbers()
