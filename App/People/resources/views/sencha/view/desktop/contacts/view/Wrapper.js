@@ -11,6 +11,7 @@ Ext.define('Melisa.people.view.desktop.contacts.view.Wrapper', {
         'Melisa.core.Module'
     ],
     
+    reference: 'wrapper',
     layout: 'border',
     cls: 'app-people-contacts-view',
     viewModel: {
@@ -65,6 +66,11 @@ Ext.define('Melisa.people.view.desktop.contacts.view.Wrapper', {
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        render: function() {
+            this.down('peoplecontactsview').setViewModel(this.getViewModel());
+        }
+    }
     
 });
