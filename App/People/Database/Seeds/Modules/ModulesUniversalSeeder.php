@@ -75,6 +75,7 @@ class ModulesUniversalSeeder extends Seeder
         $this->call(Universal\Labels\Emails\PagingSeeder::class);
         $this->call(Universal\Labels\PhoneNumbers\PagingSeeder::class);
         $this->call(Universal\Labels\Addresses\PagingSeeder::class);
+        $this->call(Universal\Labels\People\PagingSeeder::class);
         
     }
     

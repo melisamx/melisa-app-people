@@ -20,6 +20,7 @@ Ext.define('Melisa.people.view.desktop.people.emails.Form', {
             xtype: 'combodefault',
             fieldLabel: 'Etiqueta',
             name: 'idLabel',
+            submitValue: false,
             bind: {
                 store: '{labelsEmails}'
             }

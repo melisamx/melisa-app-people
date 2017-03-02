@@ -21,6 +21,7 @@ class AddModule extends Outbuildings
                 ],
                 'modules'=>[
                     'submit'=>$this->module('task.people.contacts.create'),
+                    'labelsPeople'=>$this->module('task.people.labels.people.paging'),
                     'labelsEmails'=>$this->module('task.people.labels.emails.paging'),
                     'contactsEmails'=>$this->module('task.people.contacts.emails.paging'),
                     'contactsPhoneNumbers'=>$this->module('task.people.contacts.phoneNumbers.paging'),

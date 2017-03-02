@@ -1,11 +1,12 @@
 <?php namespace App\People\Logics\Contacts;
 
+use Melisa\core\LogicBusiness;
 use App\People\Repositories\PeopleRepository;
 use App\People\Repositories\PeopleEmailsRepository;
 use App\People\Repositories\PeoplePhoneNumbersRepository;
 use App\People\Repositories\PeopleAddressesRepository;
 use App\People\Repositories\PeopleFilesRepository;
-use Melisa\core\LogicBusiness;
+use App\People\Repositories\PeopleLabelsRepository;
 
 /**
  * Create contact and all information posible (emails, phone numbers, etc.)
@@ -21,13 +22,15 @@ class CreateLogic
     protected $peoplePhoneNumbersRepository;
     protected $peopleAddressesRepository;
     protected $peopleFilesRepository;
+    protected $peopleLabelsRepository;
 
     public function __construct(
             PeopleRepository $peopleRepository,
             PeopleEmailsRepository $peopleEmailsRepository,
             PeoplePhoneNumbersRepository $peoplePhoneNumbersRepository,
             PeopleAddressesRepository $peopleAddressesRepository,
-            PeopleFilesRepository $peopleFilesRepository
+            PeopleFilesRepository $peopleFilesRepository,
+            PeopleLabelsRepository $peopleLabelsRepository
         )
     {
         $this->peopleRepository = $peopleRepository;
@@ -35,6 +38,7 @@ class CreateLogic
         $this->peoplePhoneNumbersRepository = $peoplePhoneNumbersRepository;
         $this->peopleAddressesRepository = $peopleAddressesRepository;
         $this->peopleFilesRepository = $peopleFilesRepository;
+        $this->peopleLabelsRepository = $peopleLabelsRepository;
     }
     
     public function init($input = [])
@@ -100,7 +104,36 @@ class CreateLogic
             $event ['idFiles']= $idFiles;
         }
         
+        $idLabel = $this->createLabel($idPeople, $input['idLabel']);
+        
+        if( $idLabel === false) {
+            return false;
+        } else {
+            $event ['idLabel']= $idLabel;
+        }
+        
         return true;
+        
+    }
+    
+    public function createLabel($idPeople, $idLabel = null)
+    {
+        
+        if( is_null($idLabel) || empty($idLabel)) {
+            return true;
+        }
+        
+        $idLabel = $this->peopleLabelsRepository->create([
+            'idPeople'=>$idPeople,
+            'idIdentityCreated'=>$this->getIdentity(),
+            'idLabel'=>$idLabel
+        ]);
+        
+        if( !$idLabel) {
+            return $this->error('Imposible agregar etiqueta a la persona');
+        }
+        
+        return $idLabel;
         
     }
     

@@ -1,4 +1,4 @@
-<?php namespace App\People\Http\Requests\Contacts;
+<?php namespace App\People\Http\Requests\Labels\People;
 
 use Melisa\Laravel\Http\Requests\WithFilter;
 
@@ -13,14 +13,11 @@ class PagingRequest extends WithFilter
         'page'=>'bail|required|xss|numeric',
         'start'=>'bail|required|xss|numeric',
         'limit'=>'bail|required|xss|numeric',
-        'filter'=>'bail|sometimes|json|filter:name,idLabel,lastName',
-        'query'=>'bail|sometimes|xss'
+        'filter'=>'bail|sometimes|json|filter:name',
     ];
     
     public $rulesFilters = [
-        'name'=>'bail|sometimes|xss|max:36',
-        'idLabel'=>'bail|sometimes|xss|alpha_dash|size:36',
-        'lastName'=>'bail|sometimes|xss|max:36',
+        'name'=>'bail|sometimes|max:36|xss',
     ];
     
 }

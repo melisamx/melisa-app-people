@@ -6,6 +6,7 @@ Ext.define('Melisa.people.view.desktop.people.Form', {
         'Melisa.view.desktop.ComboSex',
     ],
     
+    scrollable: true,
     layout: {
         type: 'vbox',
         align: 'stretch'
@@ -44,15 +45,6 @@ Ext.define('Melisa.people.view.desktop.people.Form', {
         },
         {
             items: [
-                {
-                    xtype: 'checkbox',
-                    name: 'active',
-                    fieldLabel: 'Activo',
-                    padding: '0 10',
-                    checked: true,
-                    width: 60,
-                    flex: null
-                },
                 {
                     name: 'nickName',
                     fieldLabel: 'Nombre de preferencia',
@@ -95,6 +87,28 @@ Ext.define('Melisa.people.view.desktop.people.Form', {
                 {
                     name: 'rfc',
                     fieldLabel: 'RFC'
+                }
+            ]
+        },
+        {
+            items: [
+                {
+                    xtype: 'checkbox',
+                    name: 'active',
+                    fieldLabel: 'Activo',
+                    padding: '0 10',
+                    checked: true,
+                    width: 60,
+                    flex: null
+                },
+                {
+                    xtype: 'combobox',
+                    fieldLabel: 'Etiqueta',
+                    name: 'idLabel',
+                    allowBlank: true,
+                    bind: {
+                        store: '{labelsPeople}'
+                    }
                 }
             ]
         }

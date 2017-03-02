@@ -51,6 +51,18 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperModel', {
                 }
             }
         },
+        labelsPeople: {
+            remoteFilter: true,
+            remoteSort: true,
+            proxy: {
+                type: 'ajax',
+                url: '{modules.labelsPeople}',
+                reader: {
+                    type: 'json',
+                    rootProperty: 'data'
+                }
+            }
+        },
         labelsEmails: {
             remoteFilter: true,
             remoteSort: true,

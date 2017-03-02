@@ -22,21 +22,16 @@ Ext.define('Melisa.people.view.desktop.contacts.add.Wrapper', {
     ],
     
     controller: 'peoplepeopleadd',
-    layout: {
-        type: 'vbox',
-        align: 'stretch'
-    },
-    viewModel: {
-        type: 'peoplepeopleadd'
-    },    
+    viewModel: 'peoplepeopleadd',
+    layout: 'fit',
     items: [
         {
-            xtype: 'peoplepeopleform'
-        },
-        {
             xtype: 'tabpanel',
-            flex: 1,
             items: [
+                {
+                    xtype: 'peoplepeopleform',
+                    title: 'Datos basicos'
+                },
                 {
                     title: 'Información de contacto',
                     layout: 'fit',
@@ -157,32 +152,32 @@ Ext.define('Melisa.people.view.desktop.contacts.add.Wrapper', {
                             xtype: 'peoplepeoplefilesgrid'
                         }
                     ]
+                },
+                {
+                    xtype: 'textfield',
+                    reference: 'txtEmails',
+                    name: 'emails',
+                    hidden: true
+                },
+                {
+                    xtype: 'textfield',
+                    reference: 'txtPhoneNumbers',
+                    name: 'phoneNumbers',
+                    hidden: true
+                },
+                {
+                    xtype: 'textfield',
+                    reference: 'txtAddresses',
+                    name: 'addresses',
+                    hidden: true
+                },
+                {
+                    xtype: 'textfield',
+                    reference: 'txtFiles',
+                    name: 'files',
+                    hidden: true
                 }
             ]
-        },
-        {
-            xtype: 'textfield',
-            reference: 'txtEmails',
-            name: 'emails',
-            hidden: true
-        },
-        {
-            xtype: 'textfield',
-            reference: 'txtPhoneNumbers',
-            name: 'phoneNumbers',
-            hidden: true
-        },
-        {
-            xtype: 'textfield',
-            reference: 'txtAddresses',
-            name: 'addresses',
-            hidden: true
-        },
-        {
-            xtype: 'textfield',
-            reference: 'txtFiles',
-            name: 'files',
-            hidden: true
         }
     ],
     bbar: {

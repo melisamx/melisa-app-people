@@ -13,16 +13,12 @@ Ext.define('Melisa.people.view.desktop.contacts.addSimple.Wrapper', {
     ],
     
     width: 600,
-    height: 400,
+    height: 440,
     config: {
         isAutoShow: true
     },
-    controller: {
-        type: 'create'
-    },
-    viewModel: {
-        type: 'peoplepeopleadd'
-    },
+    controller: 'create',
+    viewModel: 'peoplepeopleadd',
     items: [
         {
             xtype: 'peoplepeopleform'

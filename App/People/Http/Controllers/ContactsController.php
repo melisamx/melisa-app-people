@@ -39,19 +39,6 @@ class ContactsController extends Controller
         
     }
     
-    public function createSimple(CreateRequest $request, PeopleRepository $repository)
-    {
-        
-        $logic = new CreateLogic($repository);
-        
-        $result = $logic
-                ->setFireEvent('event.people.people.contacts.simple.create.success')
-                ->init($request->allValid());
-        
-        return response()->data($result);
-        
-    }
-    
     public function delete(DeleteRequest $request, PeopleRepository $repository)
     {
         

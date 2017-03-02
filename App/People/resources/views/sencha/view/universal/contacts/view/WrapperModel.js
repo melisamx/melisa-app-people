@@ -53,12 +53,14 @@ Ext.define('Melisa.people.view.universal.contacts.view.WrapperModel', {
                     {
                         text: 'Contactos',
                         leaf: true,
-                        iconCls: 'fa fa-address-card-o'
+                        iconCls: 'fa fa-address-card-o',
+                        key: 'all'
                     },
                     {
                         text: 'Contactos frecuentes',
                         leaf: true,
-                        iconCls: 'fa fa-clock-o'
+                        iconCls: 'fa fa-clock-o',
+                        key: 'frequent'
                     }
                 ]
             }

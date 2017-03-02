@@ -19,6 +19,7 @@ Ext.define('Melisa.people.view.desktop.people.phoneNumbers.Form', {
             xtype: 'combodefault',
             fieldLabel: 'Etiqueta',
             name: 'idLabel',
+            submitValue: false,
             bind: {
                 store: '{labelsPhoneNumbers}'
             }

@@ -58,6 +58,14 @@ Route::group([
 });
 
 Route::group([
+    'prefix'=>'labelsPeople'
+], function() {
+    
+    require realpath(base_path() . '/routes/modules/labelsPeople.php');
+    
+});
+
+Route::group([
     'prefix'=>'states'
 ], function() {
     

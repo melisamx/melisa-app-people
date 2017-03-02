@@ -31,7 +31,7 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperController', {
         
         var me = this,
             vm = me.getViewModel(),
-            values = form.getValues(),
+            values = form.getForm().getFieldValues(),
             store = vm.getStore('addresses');
         
         if( Ext.isEmpty(values.street) || Ext.isEmpty(values.idState)
@@ -64,7 +64,7 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperController', {
         
         var me = this,
             vm = me.getViewModel(),
-            values = form.getValues(),
+            values = form.getForm().getFieldValues(),
             store = vm.getStore('phoneNumbers');
         
         if( Ext.isEmpty(values.number)) {
@@ -90,7 +90,7 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperController', {
         
         var me = this,
             vm = me.getViewModel(),
-            values = form.getValues(),
+            values = form.getForm().getFieldValues(),
             stoEmails = vm.getStore('emails');
         
         if( Ext.isEmpty(values.email)) {

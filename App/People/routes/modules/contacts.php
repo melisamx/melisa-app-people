@@ -7,4 +7,4 @@ Route::post('delete', 'ContactsController@delete')->middleware('gate:task.people
 Route::get('/', 'ContactsController@paging')->middleware('gate:task.people.contacts.paging');
 Route::get('view', 'ContactsController@view')->middleware('gate:task.people.contacts.view.access');
 Route::get('add', 'ContactsController@add')->middleware('gate:task.people.contacts.add.access');
-Route::get('addSimple', 'ContactsController@addSimple')->middleware('gate:task.people.contacts.addSimple.access');
+Route::get('addSimple', 'ContactsController@add')->middleware('gate:task.people.contacts.addSimple.access');

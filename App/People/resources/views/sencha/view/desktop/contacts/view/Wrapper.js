@@ -4,7 +4,8 @@ Ext.define('Melisa.people.view.desktop.contacts.view.Wrapper', {
     requires: [
         'Melisa.core.Module',
         'Melisa.people.view.desktop.contacts.view.Grid',
-        'Melisa.people.view.universal.contacts.view.WrapperModel'
+        'Melisa.people.view.universal.contacts.view.WrapperModel',
+        'Melisa.people.view.desktop.contacts.view.WrapperController'
     ],
     
     mixins: [
@@ -14,9 +15,8 @@ Ext.define('Melisa.people.view.desktop.contacts.view.Wrapper', {
     reference: 'wrapper',
     layout: 'border',
     cls: 'app-people-contacts-view',
-    viewModel: {
-        type: 'peoplecontactsview'
-    },
+    controller: 'peoplecontactsview',
+    viewModel: 'peoplecontactsview',
     items: [
         {
             region: 'center',
@@ -38,8 +38,12 @@ Ext.define('Melisa.people.view.desktop.contacts.view.Wrapper', {
                     xtype: 'treelist',
                     ui: 'navigation',
                     bind: '{filters}',
+                    reference: 'treFilters',
                     defaults: {
                         indent: 15
+                    },
+                    listeners: {
+                        selectionchange: 'onSelectionchangeFilters'
                     }
                 },
                 {
@@ -53,11 +57,15 @@ Ext.define('Melisa.people.view.desktop.contacts.view.Wrapper', {
                                 {
                                     xtype: 'treelist',
                                     ui: 'navigation',
+                                    reference: 'treLabels',
                                     bind: {
                                         store: '{labelsContacts}'
                                     },
                                     defaults: {
                                         indent: 15
+                                    },
+                                    listeners: {
+                                        selectionchange: 'onSelectionchangeLabel'
                                     }
                                 }
                             ]

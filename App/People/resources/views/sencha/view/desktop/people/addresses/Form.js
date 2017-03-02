@@ -70,6 +70,7 @@ Ext.define('Melisa.people.view.desktop.people.addresses.Form', {
             fieldLabel: 'Etiqueta',
             name: 'idLabel',
             reference: 'cmbLabelsAddresses',
+            submitValue: false,
             bind: {
                 store: '{labelsAddresses}'
             }
