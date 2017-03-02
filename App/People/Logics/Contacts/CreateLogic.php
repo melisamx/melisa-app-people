@@ -191,6 +191,7 @@ class CreateLogic
                 'postalCode'=>$record->postalCode,
                 'colony'=>$record->colony,
                 'idLabel'=>empty($record->idLabel) ? null : $record->idLabel,
+                'isPrimary'=>empty($record->isPrimary) ? null : true,
             ]);
             
             if( !$result) {
@@ -223,6 +224,7 @@ class CreateLogic
                 'idIdentityCreated'=>$idIdentity,
                 'number'=>$record->number,
                 'idLabel'=>empty($record->idLabel) ? null : $record->idLabel,
+                'isPrimary'=>empty($record->isPrimary) ? null : true,
             ]);
             
             if( !$result) {
@@ -255,6 +257,7 @@ class CreateLogic
                 'idIdentityCreated'=>$idIdentity,
                 'email'=>$record->email,
                 'idLabel'=>empty($record->idLabel) ? null : $record->idLabel,
+                'isPrimary'=>empty($record->isPrimary) ? null : true,
             ]);
             
             if( !$result) {

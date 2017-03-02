@@ -31,8 +31,17 @@ class PagingCriteria extends Criteria
                         '(',
                         'select email from peopleEmails ',
                         'where idPeople=people.id ',
-                        'limit 1',
+                        'order by isPrimary ',
+                        'limit 1 ',
                         ') as email'
+                    ])),
+                    \DB::raw(implode('', [
+                        '(',
+                        'select number from peoplePhoneNumbers ',
+                        'where idPeople=people.id ',
+                        'order by isPrimary ',
+                        'limit 1 ',
+                        ') as phoneNumber'
                     ]))
                 ])
                 ->orderBy('people.name');

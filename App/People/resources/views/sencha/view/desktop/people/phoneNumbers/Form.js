@@ -23,6 +23,11 @@ Ext.define('Melisa.people.view.desktop.people.phoneNumbers.Form', {
             bind: {
                 store: '{labelsPhoneNumbers}'
             }
+        },
+        {
+            xtype: 'checkbox',
+            name: 'isPrimary',
+            fieldLabel: '¿Es Primario?'
         }
     ]
 });

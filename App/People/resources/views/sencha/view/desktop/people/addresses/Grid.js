@@ -21,6 +21,14 @@ Ext.define('Melisa.people.view.desktop.people.addresses.Grid', {
             text: 'Calle',
             dataIndex: 'street',
             flex: 1
+        },
+        {
+            xtype: 'booleancolumn',
+            text: 'Primario',
+            trueText: 'Si',
+            falseText: 'No',
+            dataIndex: 'isPrimary',
+            width: 100
         }
     ],
     bbar: {

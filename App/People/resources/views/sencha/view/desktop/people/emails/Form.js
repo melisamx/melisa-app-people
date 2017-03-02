@@ -24,6 +24,11 @@ Ext.define('Melisa.people.view.desktop.people.emails.Form', {
             bind: {
                 store: '{labelsEmails}'
             }
+        },
+        {
+            xtype: 'checkbox',
+            name: 'isPrimary',
+            fieldLabel: '¿Es Primario?'
         }
     ]
 });

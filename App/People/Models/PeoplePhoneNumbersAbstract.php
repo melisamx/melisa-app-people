@@ -14,7 +14,7 @@ abstract class PeoplePhoneNumbersAbstract extends BaseUuid
     protected $table = 'peoplePhoneNumbers';
     
     protected $fillable = [
-        'id', 'number', 'idLabel', 'idPeople', 'idIdentityCreated', 'active', 'createdAt', 'idIdentityUpdated', 'updatedAt'
+        'id', 'number', 'idLabel', 'idPeople', 'idIdentityCreated', 'active', 'isPrimary', 'createdAt', 'idIdentityUpdated', 'updatedAt'
     ];
     
     public $timestamps = true;

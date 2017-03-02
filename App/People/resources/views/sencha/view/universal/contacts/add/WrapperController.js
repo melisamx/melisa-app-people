@@ -50,6 +50,7 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperController', {
             colony: values.colony,
             idLabel: values.idLabel,
             idState: values.idState,
+            isPrimary: values.isPrimary,
             idMunicipality: values.idMunicipality,
             state: me.lookup('cmbStates').getRawValue(),
             municipality: me.lookup('cmbMunicipalities').getRawValue(),
@@ -79,6 +80,7 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperController', {
         store.add({
             number: values.number,
             idLabel: values.idLabel,
+            isPrimary: values.isPrimary,
             label: form.down('combodefault').getRawValue()
         });
         
@@ -105,6 +107,7 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperController', {
         stoEmails.add({
             email: values.email,
             idLabel: values.idLabel,
+            isPrimary: values.isPrimary,
             label: form.down('combodefault').getRawValue()
         });
         
@@ -132,14 +135,16 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperController', {
         stoEmails.each(function(record) {            
             idEmails.push({
                 email: record.get('email'),
-                idLabel: record.get('idLabel')
+                idLabel: record.get('idLabel'),
+                isPrimary: record.get('isPrimary')
             });            
         });
         
         stoPhoneNumbers.each(function(record) {            
             idPhoneNumbers.push({
                 number: record.get('number'),
-                idLabel: record.get('idLabel')
+                idLabel: record.get('idLabel'),
+                isPrimary: record.get('isPrimary'),
             });            
         });
         
@@ -157,7 +162,8 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperController', {
                 idMunicipality: record.get('idMunicipality'),
                 postalCode: record.get('postalCode'),
                 colony: record.get('colony'),
-                idLabel: record.get('idLabel')
+                idLabel: record.get('idLabel'),
+                isPrimary: record.get('isPrimary')
             });
         });
         

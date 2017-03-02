@@ -14,7 +14,7 @@ abstract class PeopleAddressesAbstract extends BaseUuid
     protected $table = 'peopleAddresses';
     
     protected $fillable = [
-        'id', 'idLabel', 'idMunicipality', 'idPeople', 'idState', 'idIdentityCreated', 'createdAt', 'idIdentityUpdated', 'street', 'colony', 'postalCode', 'updatedAt'
+        'id', 'idLabel', 'idMunicipality', 'idPeople', 'idState', 'idIdentityCreated', 'isPrimary', 'createdAt', 'idIdentityUpdated', 'street', 'colony', 'postalCode', 'updatedAt'
     ];
     
     public $timestamps = true;

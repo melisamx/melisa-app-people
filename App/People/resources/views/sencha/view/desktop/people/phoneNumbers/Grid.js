@@ -16,6 +16,14 @@ Ext.define('Melisa.people.view.desktop.people.phoneNumbers.Grid', {
             text: 'Etiqueta',
             dataIndex: 'label',
             flex: 1
+        },
+        {
+            xtype: 'booleancolumn',
+            text: 'Primario',
+            trueText: 'Si',
+            falseText: 'No',
+            dataIndex: 'isPrimary',
+            width: 100
         }
     ],
     bbar: {
