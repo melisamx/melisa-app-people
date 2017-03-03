@@ -8,3 +8,4 @@ Route::get('/', 'ContactsController@paging')->middleware('gate:task.people.conta
 Route::get('view', 'ContactsController@view')->middleware('gate:task.people.contacts.view.access');
 Route::get('add', 'ContactsController@add')->middleware('gate:task.people.contacts.add.access');
 Route::get('addSimple', 'ContactsController@add')->middleware('gate:task.people.contacts.addSimple.access');
+Route::get('report/{id}/{format}', 'ContactsController@report')->middleware('gate:task.people.contacts.report');

@@ -13,6 +13,9 @@ use App\People\Repositories\PeopleRepository;
 use App\People\Criteria\Contacts\PagingCriteria;
 
 use App\People\Logics\Contacts\CreateLogic as ContactCreateLogic;
+use App\People\Logics\Contacts\ReportLogic;
+
+use App\People\Modules\Contacts\ReportModule;
 
 /**
  * 
@@ -49,6 +52,19 @@ class ContactsController extends Controller
                 ->init($request->allValid());
         
         return response()->data($result);
+        
+    }
+    
+    public function report($id, $format, ReportModule $module, ReportLogic $logic)
+    {
+        
+        if( $format === 'json') {
+            return response()->data($logic->init($id));
+        }
+        
+        return $module
+                ->withInput($logic->init($id))
+                ->render($id);
         
     }
     

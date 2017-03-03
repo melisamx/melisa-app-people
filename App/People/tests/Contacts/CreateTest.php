@@ -1,14 +1,19 @@
 <?php namespace App\People\tests\Contacts;
 
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Melisa\Laravel\Database\InstallUser;
+
 use App\People\tests\TestCase;
 use App\People\Models\States;
 use App\People\Models\Municipalities;
 use App\People\Models\Labels;
-use Melisa\Laravel\Database\InstallUser;
 
 class CreateTest extends TestCase
 {
-    use InstallUser;
+    use InstallUser,
+        DatabaseTransactions;
+    
+    protected $connectionsToTransact = ['core', 'people'];
     
     /**
      * @test
@@ -29,24 +34,15 @@ class CreateTest extends TestCase
             'idBloodType'=>2,
             'birthday'=>'25/02/2017',
         ])
-        ->dump()
-        /*->seeJson([
+        ->seeJson([
             'success'=>true,
-        ])
-        ->seeJsonStructure([
-            'data'=>[
-                '*'=>[
-                    'idConnection', 'database', 'columnName'
-                ]
-            ],
-            'total'
-        ])*/;
+        ]);
         
     }
     
     /**
      * @test
-     * @group dev
+     * @group completed
      */
     public function detail()
     {

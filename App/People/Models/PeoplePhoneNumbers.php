@@ -7,6 +7,9 @@
 class PeoplePhoneNumbers extends PeoplePhoneNumbersAbstract
 {
     
-    
+    public function labels()
+    {
+        return $this->hasOne('App\People\Models\Labels', 'id', 'idLabel');
+    }
     
 }
