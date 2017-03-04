@@ -4,51 +4,23 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperModel', {
         
     stores: {
         files: {
-            remoteFilter: false,
-            remoteSort: false,
             proxy: {
-                type: 'ajax',
-                url: '{modules.contactsFiles}',
-                reader: {
-                    type: 'json',
-                    rootProperty: 'data'
-                }
+                type: 'memory'
             }
         },
         addresses: {
-            remoteFilter: false,
-            remoteSort: false,
             proxy: {
-                type: 'ajax',
-                url: '{modules.contactsAddresses}',
-                reader: {
-                    type: 'json',
-                    rootProperty: 'data'
-                }
+                type: 'memory'
             }
         },
         emails: {
-            remoteFilter: false,
-            remoteSort: false,
             proxy: {
-                type: 'ajax',
-                url: '{modules.contactsEmails}',
-                reader: {
-                    type: 'json',
-                    rootProperty: 'data'
-                }
+                type: 'memory'
             }
         },
         phoneNumbers: {
-            remoteFilter: false,
-            remoteSort: false,
             proxy: {
-                type: 'ajax',
-                url: '{modules.contactsPhoneNumbers}',
-                reader: {
-                    type: 'json',
-                    rootProperty: 'data'
-                }
+                type: 'memory'
             }
         },
         labelsPeople: {

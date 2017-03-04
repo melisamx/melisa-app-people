@@ -41,7 +41,7 @@ Ext.define('Melisa.people.view.desktop.people.files.Form', {
         },
         {
             xtype: 'textfield',
-            name: 'fileName',
+            name: 'name',
             reference: 'txtFileName',
             itemId: 'txtFileName',
             hidden: true

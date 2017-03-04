@@ -15,7 +15,7 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperController', {
             idFile: values.idFile,
             idFileType: values.idFileType,
             fileType: values.fileType,
-            name: values.fileName
+            name: values.name
         });
         
         return true;
@@ -139,6 +139,30 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperController', {
             return true;
         } else {
             me.showError('Atención', 'Dirección repetida');
+            return false;
+        }
+        
+    },
+    
+    updateFile: function(values, lastRecord) {
+        
+        var me = this,
+            vm = me.getViewModel(),
+            store = vm.getStore('files'),
+            record;
+        
+        record = store.findRecord('idFile', values.idFile);
+        
+        if( !record) {
+            lastRecord.set(values);
+            return true;
+        }
+        
+        if( record.get('id') === lastRecord.get('id')) {
+            lastRecord.set(values);
+            return true;
+        } else {
+            me.showError('Atención', 'Documento repetida');
             return false;
         }
         

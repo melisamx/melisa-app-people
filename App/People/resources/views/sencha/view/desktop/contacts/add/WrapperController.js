@@ -153,6 +153,7 @@ Ext.define('Melisa.people.view.desktop.contacts.add.WrapperController', {
             title: 'Modificar dirección',
             viewModel: me.getViewModel(),
             record: record,
+            height: '80%',
             items: [
                 {
                     xtype: 'peoplepeopladdressesform'
@@ -160,6 +161,31 @@ Ext.define('Melisa.people.view.desktop.contacts.add.WrapperController', {
             ],
             listeners: {
                 save: me.onUpdateAddress,
+                scope: me
+            }
+        }).show(row);
+        
+        window.fireEvent('loaddata', record);
+        return window;
+        
+    },
+    
+    onClickActionFileEdit: function(grid, ri, ci, action, e, record, row) {
+        
+        var me = this,
+            window;
+        
+        window = Ext.create('widget.peopledetailswindow', {
+            title: 'Modificar documento',
+            viewModel: me.getViewModel(),
+            record: record,
+            items: [
+                {
+                    xtype: 'peoplepeoplefilesform'
+                }
+            ],
+            listeners: {
+                save: me.onUpdateFile,
                 scope: me
             }
         }).show(row);
@@ -193,6 +219,17 @@ Ext.define('Melisa.people.view.desktop.contacts.add.WrapperController', {
         values.label = form.down('combodefault').getRawValue();
         
         if( me.updatePhoneNumber(values, window.record)) {
+            window.close();
+        }
+        
+    },
+    
+    onUpdateFile: function(window, form) {
+        
+        var me = this,
+            values = form.getForm().getFieldValues();
+        
+        if( me.updateFile(values, window.record)) {
             window.close();
         }
         

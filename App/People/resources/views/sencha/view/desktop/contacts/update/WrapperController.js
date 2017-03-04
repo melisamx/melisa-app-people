@@ -79,6 +79,7 @@ Ext.define('Melisa.people.view.desktop.contacts.update.WrapperController', {
             stoFiles.add({
                 id: record.id,
                 idFileType: record.idFileType,
+                idFile: record.idFile,
                 fileType: record.type.name,
                 name: record.file.name
             });
@@ -92,6 +93,80 @@ Ext.define('Melisa.people.view.desktop.contacts.update.WrapperController', {
             
         Ext.GlobalEvents.fireEvent('app.people.contacts.update.success', action.result);
 
+    },
+    
+    onClickActionFileEdit: function(grid, ri, ci, action, e, record, row) {
+        
+        var me = this,
+            store = me.getViewModel().getStore('filesTypes');
+        
+        store.add({
+            id: record.get('idFileType'),
+            name: record.get('fileType')
+        });
+        
+        me.callParent(arguments);
+        
+    },
+    
+    onClickActionEmailEdit: function(grid, ri, ci, action, e, record, row) {
+        
+        var me = this,
+            store = me.getViewModel().getStore('labelsEmails');
+        
+        store.add({
+            id: record.get('idLabel'),
+            name: record.get('label')
+        });
+        
+        me.callParent(arguments);
+        
+    },    
+    
+    onClickActionPhoneNumberEdit: function(grid, ri, ci, action, e, record, row) {
+        
+        var me = this,
+            store = me.getViewModel().getStore('labelsPhoneNumbers');
+        
+        store.add({
+            id: record.get('idLabel'),
+            name: record.get('label')
+        });
+        
+        me.callParent(arguments);
+        
+    },    
+    
+    onClickActionAddressEdit: function(grid, ri, ci, action, e, record, row) {
+        
+        var me = this,
+            vm = me.getViewModel(),
+            stoStates = vm.getStore('states'),
+            stoLabelsAddresses = vm.getStore('labelsAddresses'),
+            window;
+        
+        stoStates.add({
+            id: record.get('idState'),
+            name: record.get('state')
+        });
+        stoLabelsAddresses.add({
+            id: record.get('idLabel'),
+            name: record.get('label')
+        });
+        
+        window = me.callParent(arguments);
+        window.down('#cmbStates').select(record.get('idState'));
+        
+        /* necesary create store */
+        vm.set('cmbStates.selection.id', record.get('idState'));
+        vm.notify();
+        
+        vm.getStore('municipalities').add({
+            id: record.get('idMunicipality'),
+            name: record.get('municipality')
+        });
+        window.down('#cmbMunicipalities').select(record.get('idMunicipality'));
+        
     }
     
 });
