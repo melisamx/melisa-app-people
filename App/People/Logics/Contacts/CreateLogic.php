@@ -104,36 +104,46 @@ class CreateLogic
             $event ['idFiles']= $idFiles;
         }
         
-        $idLabel = $this->createLabel($idPeople, $input['idLabel']);
+        $idLabels = $this->createLabel($idPeople, $input['labels']);
         
-        if( $idLabel === false) {
+        if( $idLabels === false) {
             return false;
-        } else {
-            $event ['idLabel']= $idLabel;
+        } else if( !empty($idFiles)) {
+            $event ['idLabels']= $idLabels;
         }
         
         return true;
         
     }
     
-    public function createLabel($idPeople, $idLabel = null)
+    public function createLabel($idPeople, $input)
     {
         
-        if( is_null($idLabel) || empty($idLabel)) {
-            return true;
+        $records = json_decode($input);
+        
+        if( is_null($records)) {
+            return [];
         }
         
-        $idLabel = $this->peopleLabelsRepository->create([
-            'idPeople'=>$idPeople,
-            'idIdentityCreated'=>$this->getIdentity(),
-            'idLabel'=>$idLabel
-        ]);
-        
-        if( !$idLabel) {
-            return $this->error('Imposible agregar etiqueta a la persona');
+        $ids = [];
+        $idIdentity = $this->getIdentity();
+        foreach($records as $record) {
+            
+            $result = $this->peopleLabelsRepository->create([
+                'idPeople'=>$idPeople,
+                'idIdentityCreated'=>$idIdentity,
+                'idLabel'=>$record
+            ]);
+
+            if( !$result) {
+                return $this->error('Imposible agregar etiqueta a la persona');
+            }
+            
+            $ids []= $result;
+            
         }
         
-        return $idLabel;
+        return $ids;
         
     }
     

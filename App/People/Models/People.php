@@ -12,6 +12,11 @@ class People extends PeopleAbstract
         return $this->hasMany('App\People\Models\PeopleEmails', 'idPeople', 'id');
     }
     
+    public function bloodType()
+    {
+        return $this->hasOne('App\People\Models\BloodTypes', 'id', 'idBloodType');
+    }
+    
     public function labels()
     {
         return $this->hasMany('App\People\Models\PeopleLabels', 'idPeople', 'id');

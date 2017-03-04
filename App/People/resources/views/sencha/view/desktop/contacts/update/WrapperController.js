@@ -37,7 +37,9 @@ Ext.define('Melisa.people.view.desktop.contacts.update.WrapperController', {
             stoAddresses = vm.getStore('addresses'),
             stoEmails = vm.getStore('emails'),
             stoPhoneNumbers = vm.getStore('phoneNumbers'),
-            stoFiles = vm.getStore('files');
+            stoFiles = vm.getStore('files'),
+            stoLabelsPeople,
+            idLabels = [];
         
         Ext.each(data.emails, function(record) {
             stoEmails.add({
@@ -85,7 +87,28 @@ Ext.define('Melisa.people.view.desktop.contacts.update.WrapperController', {
             });
         });
         
+        if( data.bloodType) {
+            vm.getStore('bloodTypes').add({
+                id: data.idBloodType,
+                name: data.bloodType.name
+            });
+        }
+        
         me.mixins.update.onSuccessLoadData.call(me, data);
+        
+        if( data.labels) {
+            
+            stoLabelsPeople = vm.getStore('labelsPeople');
+            Ext.each(data.labels, function(record) {
+                idLabels.push(record.idLabel);
+                stoLabelsPeople.add({
+                    id: record.idLabel,
+                    name: record.label.name,
+                });
+            });            
+            me.lookup('tagLabels').setValue(idLabels.toString());
+            
+        }
         
     },
     

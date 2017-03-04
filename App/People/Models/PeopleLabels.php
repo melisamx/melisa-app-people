@@ -7,7 +7,7 @@
 class PeopleLabels extends PeopleLabelsAbstract
 {
     
-    public function labels()
+    public function label()
     {
         return $this->hasOne('App\People\Models\Labels', 'id', 'idLabel');
     }

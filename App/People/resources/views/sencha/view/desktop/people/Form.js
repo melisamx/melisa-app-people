@@ -55,6 +55,7 @@ Ext.define('Melisa.people.view.desktop.people.Form', {
                     name: 'idBloodType',
                     fieldLabel: 'Tipo de sangre',
                     padding: '0 10',
+                    reference: 'cmbBloodTypes',
                     allowBlank: true,
                     bind: {
                         store: '{bloodTypes}'
@@ -102,10 +103,14 @@ Ext.define('Melisa.people.view.desktop.people.Form', {
                     flex: null
                 },
                 {
-                    xtype: 'combobox',
+                    xtype: 'tagfield',
                     fieldLabel: 'Etiqueta',
-                    name: 'idLabel',
+                    name: 'labels',
+                    reference: 'tagLabels',
                     allowBlank: true,
+                    encodeSubmitValue: true,
+                    displayField: 'name',
+                    valueField: 'id',
                     bind: {
                         store: '{labelsPeople}'
                     }

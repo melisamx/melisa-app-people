@@ -24,6 +24,7 @@ class ReportLogic
         
         $record = $this->repository
                 ->with([
+                    'bloodType',
                     'emails'=>function($query) {
                         $query->with([
                             'label'
@@ -62,7 +63,8 @@ class ReportLogic
         $record = $record->toArray();
         
         $record ['phoneNumbers'] = $record['phone_numbers'];
-        unset($record['phone_numbers']);
+        $record ['bloodType'] = $record['blood_type'];
+        unset($record['phone_numbers'], $record['blood_type']);
         
         return $record;        
         
