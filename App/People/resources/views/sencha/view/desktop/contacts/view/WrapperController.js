@@ -1,6 +1,10 @@
 Ext.define('Melisa.people.view.desktop.contacts.view.WrapperController', {
-    extend: 'Melisa.core.ViewController',
+    extend: 'Melisa.controller.View',
     alias: 'controller.peoplecontactsview',
+    
+    requires: [
+        'Melisa.controller.View'
+    ],
     
     onSelectionchangeLabel: function(a, record) {
         
@@ -43,6 +47,23 @@ Ext.define('Melisa.people.view.desktop.contacts.view.WrapperController', {
         }
         
         treLabels.setSelection(null);
+        
+    },
+    
+    onLoadedUpdateContact: function(module, options) {
+        
+        var me = this;
+        me.sendLoadData(module, options, 'peoplecontactsview');
+        me.gridDeselect();
+        
+    },
+    
+    gridDeselect: function() {
+        
+        var me = this,
+            view = me.getView();
+    
+        view.down('peoplecontactsview').getSelectionModel().deselectAll();
         
     }
     

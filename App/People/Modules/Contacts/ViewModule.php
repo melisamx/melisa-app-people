@@ -19,12 +19,13 @@ class ViewModule extends Outbuildings
             'data'=>[
                 'token'=>csrf_token(),
                 'wrapper'=>[
-                    'title'=>'Conctactos',
+                    'title'=>'Contactos',
                 ],
                 'modules'=>[
                     'contacts'=>$this->module('task.people.contacts.paging'),
                     'delete'=>$this->module('task.people.contacts.delete', false),
                     'add'=>$this->module('task.people.contacts.add.access', false),
+                    'update'=>$this->module('task.people.contacts.update.access', false),
                     'labelsContacts'=>$this->module('task.people.labels.contacts.paging'),
                 ],
             ]

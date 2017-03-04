@@ -67,6 +67,8 @@ class ModulesUniversalSeeder extends Seeder
         $this->call(Universal\Contacts\CreateSeeder::class);        
         $this->call(Universal\Contacts\CreateSimpleSeeder::class);        
         $this->call(Universal\Contacts\DeleteSeeder::class);        
+        $this->call(Universal\Contacts\UpdateSeeder::class);        
+        $this->call(Universal\Contacts\ReportSeeder::class);        
     }
     
     public function labels()

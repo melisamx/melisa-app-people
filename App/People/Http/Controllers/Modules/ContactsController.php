@@ -4,6 +4,7 @@ use Melisa\Laravel\Http\Controllers\Controller;
 use App\People\Modules\Contacts\ViewModule;
 use App\People\Modules\Contacts\AddModule;
 use App\People\Modules\Contacts\AddSimpleModule;
+use App\People\Modules\Contacts\UpdateModule;
 
 /**
  * 
@@ -24,6 +25,11 @@ class ContactsController extends Controller
     }
     
     public function addSimple(AddSimpleModule $module)
+    {        
+        return $module->render();        
+    }
+    
+    public function update(UpdateModule $module)
     {        
         return $module->render();        
     }

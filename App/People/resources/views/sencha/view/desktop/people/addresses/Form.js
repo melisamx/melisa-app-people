@@ -7,6 +7,7 @@ Ext.define('Melisa.people.view.desktop.people.addresses.Form', {
     ],
     
     defaultType: 'textfield',
+    scrollable: true,
     defaults: {
         anchor: '100%'
     },
@@ -28,6 +29,7 @@ Ext.define('Melisa.people.view.desktop.people.addresses.Form', {
             xtype: 'combodefault',
             name: 'idState',
             reference: 'cmbStates',
+            itemId: 'cmbStates',
             fieldLabel: 'Estado',
             forceSelection: true,
             typeAhead: true,
@@ -51,7 +53,7 @@ Ext.define('Melisa.people.view.desktop.people.addresses.Form', {
             xtype: 'combodefault',
             name: 'idMunicipality',
             fieldLabel: 'Municipio',
-            reference: 'cmbMunicipalities',
+            itemId: 'cmbMunicipalities',
             bind: {
                 store: '{municipalities}',
                 melisa: '{modules.municipalitiesAdd}',
@@ -69,8 +71,7 @@ Ext.define('Melisa.people.view.desktop.people.addresses.Form', {
             xtype: 'combodefault',
             fieldLabel: 'Etiqueta',
             name: 'idLabel',
-            reference: 'cmbLabelsAddresses',
-            submitValue: false,
+            itemId: 'cmbLabels',
             bind: {
                 store: '{labelsAddresses}'
             }

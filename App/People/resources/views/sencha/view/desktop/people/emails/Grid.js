@@ -2,10 +2,14 @@ Ext.define('Melisa.people.view.desktop.people.emails.Grid', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.peoplepeopleemailsgrid',
     
+    requires: [
+        'Melisa.ux.FloatingButton'
+    ],
+    
+    emptyText: 'Sin correos electronicos',
     bind: {
         store: '{emails}'
     },
-    emptyText: 'Sin correos electronicos',
     columns: [
         {
             text: 'Correo electronico',
@@ -24,16 +28,33 @@ Ext.define('Melisa.people.view.desktop.people.emails.Grid', {
             falseText: 'No',
             dataIndex: 'isPrimary',
             width: 100
+        },
+        {
+            xtype:'actioncolumn',
+            width: 100,
+            items: [
+                {
+                    iconCls: 'x-fa fa-pencil',
+                    tooltip: 'Modificar',
+                    handler: 'onClickActionEmailEdit'
+                },
+                {
+                    iconCls: 'x-fa fa-trash',
+                    tooltip: 'Eliminar',
+                    handler: 'onClickBtnRemoveRecord'
+                }
+            ]
         }
     ],
-    bbar: {
-        xtype: 'pagingtoolbar',
-        displayInfo: true
-    },
-    tbar: [
+    plugins: [
         {
-            iconCls: 'x-fa fa-trash',
-            handler: 'onClickBtnRemoveRecord'
+            ptype: 'floatingbutton',
+            configButton: {
+                handler: 'onClickBtnFloatingAddEmail',
+                iconCls: 'x-fa fa-plus',
+                scale: 'large'
+            }
         }
     ]
+    
 });

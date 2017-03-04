@@ -2,10 +2,10 @@ Ext.define('Melisa.people.view.desktop.people.phoneNumbers.Grid', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.peoplepeoplephonenumbersgrid',
     
+    emptyText: 'Sin numeros telefonicos',
     bind: {
         store: '{phoneNumbers}'
     },
-    emptyText: 'Sin numeros telefonicos',
     columns: [
         {
             text: 'Numero',
@@ -24,16 +24,32 @@ Ext.define('Melisa.people.view.desktop.people.phoneNumbers.Grid', {
             falseText: 'No',
             dataIndex: 'isPrimary',
             width: 100
+        },
+        {
+            xtype:'actioncolumn',
+            width: 100,
+            items: [
+                {
+                    iconCls: 'x-fa fa-pencil',
+                    tooltip: 'Modificar',
+                    handler: 'onClickActionPhoneNumberEdit'
+                },
+                {
+                    iconCls: 'x-fa fa-trash',
+                    tooltip: 'Eliminar',
+                    handler: 'onClickBtnRemoveRecord'
+                }
+            ]
         }
     ],
-    bbar: {
-        xtype: 'pagingtoolbar',
-        displayInfo: true
-    },
-    tbar: [
+    plugins: [
         {
-            iconCls: 'x-fa fa-trash',
-            handler: 'onClickBtnRemoveRecord'
+            ptype: 'floatingbutton',
+            configButton: {
+                handler: 'onClickBtnFloatingAddPhoneNumber',
+                iconCls: 'x-fa fa-plus',
+                scale: 'large'
+            }
         }
     ]
 });

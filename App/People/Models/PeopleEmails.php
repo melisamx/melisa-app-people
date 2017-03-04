@@ -7,6 +7,9 @@
 class PeopleEmails extends PeopleEmailsAbstract
 {
     
-    
+    public function label()
+    {
+        return $this->hasOne('App\People\Models\Labels', 'id', 'idLabel');
+    }
     
 }

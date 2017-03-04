@@ -27,9 +27,14 @@ class People extends PeopleAbstract
         return $this->hasMany('App\People\Models\PeopleEmails', 'idPeople', 'id');
     }
     
-    public function adresses()
+    public function addresses()
     {
         return $this->hasMany('App\People\Models\PeopleAddresses', 'idPeople', 'id');
+    }
+    
+    public function files()
+    {
+        return $this->hasMany('App\People\Models\PeopleFiles', 'idPeople', 'id');
     }
     
 }

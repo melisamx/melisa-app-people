@@ -24,20 +24,32 @@ class ReportLogic
         
         $record = $this->repository
                 ->with([
-                    'emails',
-                    'labels'=>function($query) {
+                    'emails'=>function($query) {
                         $query->with([
-                            'labels'
+                            'label'
                         ]);
                     },
-                    'adresses'=>function($query) {
+                    'labels'=>function($query) {
                         $query->with([
-                            'labels'
+                            'label'
+                        ]);
+                    },
+                    'addresses'=>function($query) {
+                        $query->with([
+                            'label',
+                            'municipality',
+                            'state'
                         ]);
                     },
                     'phoneNumbers'=>function($query) {
                         $query->with([
-                            'labels'
+                            'label'
+                        ]);
+                    },
+                    'files'=>function($query) {
+                        $query->with([
+                            'type',
+                            'file'
                         ]);
                     }
                 ])

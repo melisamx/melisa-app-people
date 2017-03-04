@@ -22,7 +22,9 @@ Ext.define('Melisa.people.view.desktop.contacts.add.Wrapper', {
     ],
     
     controller: 'peoplepeopleadd',
-    viewModel: 'peoplepeopleadd',
+    viewModel: {
+        type: 'peoplepeopleadd'
+    },
     layout: 'fit',
     items: [
         {
@@ -39,119 +41,26 @@ Ext.define('Melisa.people.view.desktop.contacts.add.Wrapper', {
                         {
                             xtype: 'tabpanel',
                             tabPosition: 'bottom',
-                            defaults: {
-                                layout: 'border'
-                            },
                             items: [
                                 {
-                                    title: 'Correos electronicos',
-                                    items: [
-                                        {
-                                            region: 'west',
-                                            width: '25%',
-                                            split: true,
-                                            xtype: 'peoplepeoplemailsform',
-                                            bbar: {
-                                                xtype: 'toolbar',
-                                                items: [
-                                                    '->',
-                                                    {
-                                                        text: 'Agregar',
-                                                        iconCls: 'x-fa fa-plus',
-                                                        handler: 'onClickBtnAddEmail'
-                                                    }
-                                                ]
-                                            }
-                                        },
-                                        {
-                                            region: 'center',
-                                            xtype: 'peoplepeopleemailsgrid',
-                                            bbar: null
-                                        }
-                                    ]
+                                    xtype: 'peoplepeopleemailsgrid',
+                                    title: 'Correos electronicos'
                                 },
                                 {
-                                    title: 'Números telefónicos',
-                                    items: [
-                                        {
-                                            region: 'west',
-                                            width: '25%',
-                                            split: true,
-                                            xtype: 'peoplepeoplephonenumbersform',
-                                            bbar: {
-                                                xtype: 'toolbar',
-                                                items: [
-                                                    '->',
-                                                    {
-                                                        text: 'Agregar',
-                                                        iconCls: 'x-fa fa-plus',
-                                                        handler: 'onClickBtnAddPhoneNumber'
-                                                    }
-                                                ]
-                                            }
-                                        },
-                                        {
-                                            region: 'center',
-                                            xtype: 'peoplepeoplephonenumbersgrid'
-                                        }
-                                    ]
+                                    xtype: 'peoplepeoplephonenumbersgrid',
+                                    title: 'Números telefónicos'
                                 },
                                 {
                                     title: 'Direcciones',
-                                    items: [
-                                        {
-                                            region: 'west',
-                                            width: '25%',
-                                            split: true,
-                                            xtype: 'peoplepeopladdressesform',
-                                            bbar: {
-                                                xtype: 'toolbar',
-                                                items: [
-                                                    '->',
-                                                    {
-                                                        text: 'Agregar',
-                                                        iconCls: 'x-fa fa-plus',
-                                                        handler: 'onClickBtnAddAddress'
-                                                    }
-                                                ]
-                                            }
-                                        },
-                                        {
-                                            region: 'center',
-                                            xtype: 'peoplepeopleaddressesgrid'
-                                        }
-                                    ]
+                                    xtype: 'peoplepeopleaddressesgrid'
                                 }
                             ]
                         }
                     ]
                 },
                 {
-                    title: 'Documentos',
-                    layout: 'border',
-                    items: [
-                        {
-                            region: 'west',
-                            width: '25%',
-                            split: true,
-                            xtype: 'peoplepeoplefilesform',
-                            bbar: {
-                                xtype: 'toolbar',
-                                items: [
-                                    '->',
-                                    {
-                                        text: 'Agregar',
-                                        iconCls: 'x-fa fa-plus',
-                                        handler: 'onClickBtnAddDocument'
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            region: 'center',
-                            xtype: 'peoplepeoplefilesgrid'
-                        }
-                    ]
+                    xtype: 'peoplepeoplefilesgrid',
+                    title: 'Documentos'
                 },
                 {
                     xtype: 'textfield',

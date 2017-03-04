@@ -36,6 +36,7 @@ class ModulesDesktopSeeder extends Seeder
         $this->call(Desktop\Contacts\ViewSeeder::class);
         $this->call(Desktop\Contacts\AddSeeder::class);
         $this->call(Desktop\Contacts\AddSimpleSeeder::class);
+        $this->call(Desktop\Contacts\UpdateSeeder::class);
     }
     
     public function labels()

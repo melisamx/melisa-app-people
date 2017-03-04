@@ -15,6 +15,7 @@ Ext.define('Melisa.people.view.desktop.people.files.Form', {
             fieldLabel: 'Seleccionar documento',
             name: 'idFile',
             reference: 'txtFile',
+            itemId: 'txtFile',
             allowBlank: true,
             bind: {
                 melisa: '{modules.filesSelect}',
@@ -42,6 +43,7 @@ Ext.define('Melisa.people.view.desktop.people.files.Form', {
             xtype: 'textfield',
             name: 'fileName',
             reference: 'txtFileName',
+            itemId: 'txtFileName',
             hidden: true
         },
         {

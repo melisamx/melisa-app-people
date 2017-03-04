@@ -86,6 +86,20 @@ Ext.define('Melisa.people.view.desktop.contacts.view.Grid', {
             plugins: {
                 ptype: 'buttonconfirmation'
             }
+        },
+        {
+            text: 'Modificar',
+            reference: 'btnModificar',
+            iconCls: 'x-fa fa-edit',
+            bind: {
+                melisa: '{modules.update}',
+                hidden: '{!modules.update.allowed}',
+                disabled: '{!grid.selection}'
+            },
+            listeners: {
+                click: 'moduleRun',
+                loaded: 'onLoadedUpdateContact'
+            }
         }
     ],
     bbar: {

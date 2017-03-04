@@ -1,15 +1,10 @@
 Ext.define('Melisa.people.view.universal.contacts.add.WrapperController', {
     
-    addFile: function(form) {
+    addFile: function(values) {
         
         var me = this,
             vm = me.getViewModel(),
-            values = form.getValues(),
             store = vm.getStore('files');
-        
-        if( Ext.isEmpty(values.idFile) || Ext.isEmpty(values.idFileType)) {
-            return false;
-        }
         
         if( store.findRecord('idFile', values.idFile)) {
             me.showError('Atención', 'Documento repetido');
@@ -27,17 +22,11 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperController', {
         
     },
     
-    addAddress: function(form) {
+    addAddress: function(values) {
         
         var me = this,
             vm = me.getViewModel(),
-            values = form.getForm().getFieldValues(),
             store = vm.getStore('addresses');
-        
-        if( Ext.isEmpty(values.street) || Ext.isEmpty(values.idState)
-             || Ext.isEmpty(values.idMunicipality)) {
-            return false;
-        }
         
         if( store.findRecord('street', values.street)) {
             me.showError('Atención', 'Dirección repetida');
@@ -52,25 +41,20 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperController', {
             idState: values.idState,
             isPrimary: values.isPrimary,
             idMunicipality: values.idMunicipality,
-            state: me.lookup('cmbStates').getRawValue(),
-            municipality: me.lookup('cmbMunicipalities').getRawValue(),
-            label: me.lookup('cmbLabelsAddresses').getRawValue()
+            state: values.state,
+            municipality: values.municipality,
+            label: values.label
         });
         
         return true;
         
     },
     
-    addPhoneNumber: function(form) {
+    addPhoneNumber: function(values) {
         
         var me = this,
             vm = me.getViewModel(),
-            values = form.getForm().getFieldValues(),
             store = vm.getStore('phoneNumbers');
-        
-        if( Ext.isEmpty(values.number)) {
-            return false;
-        }
         
         if( store.findRecord('number', values.number)) {
             me.showError('Atención', 'Número telefonico repetido');
@@ -81,23 +65,90 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperController', {
             number: values.number,
             idLabel: values.idLabel,
             isPrimary: values.isPrimary,
-            label: form.down('combodefault').getRawValue()
+            label: values.label
         });
         
         return true;
         
     },
     
-    addEmail: function(form) {
+    updateEmail: function(values, lastRecord) {
         
         var me = this,
             vm = me.getViewModel(),
-            values = form.getForm().getFieldValues(),
-            stoEmails = vm.getStore('emails');
+            store = vm.getStore('emails'),
+            record;
         
-        if( Ext.isEmpty(values.email)) {
+        record = store.findRecord('email', values.email);
+        
+        if( !record) {
+            lastRecord.set(values);
+            return true;
+        }
+        
+        if( record.get('id') === lastRecord.get('id')) {
+            lastRecord.set(values);
+            return true;
+        } else {
+            me.showError('Atención', 'Correo repetido');
             return false;
         }
+        
+    },
+    
+    updatePhoneNumber: function(values, lastRecord) {
+        
+        var me = this,
+            vm = me.getViewModel(),
+            store = vm.getStore('phoneNumbers'),
+            record;
+        
+        record = store.findRecord('number', values.number);
+        
+        if( !record) {
+            lastRecord.set(values);
+            return true;
+        }
+        
+        if( record.get('id') === lastRecord.get('id')) {
+            lastRecord.set(values);
+            return true;
+        } else {
+            me.showError('Atención', 'Número telefonico repetido');
+            return false;
+        }
+        
+    },
+    
+    updateAddress: function(values, lastRecord) {
+        
+        var me = this,
+            vm = me.getViewModel(),
+            store = vm.getStore('addresses'),
+            record;
+        
+        record = store.findRecord('street', values.street);
+        
+        if( !record) {
+            lastRecord.set(values);
+            return true;
+        }
+        
+        if( record.get('id') === lastRecord.get('id')) {
+            lastRecord.set(values);
+            return true;
+        } else {
+            me.showError('Atención', 'Dirección repetida');
+            return false;
+        }
+        
+    },
+    
+    addEmail: function(values) {
+        
+        var me = this,
+            vm = me.getViewModel(),
+            stoEmails = vm.getStore('emails');
         
         if( stoEmails.findRecord('email', values.email)) {
             me.showError('Atención', 'Correo repetido');
@@ -108,7 +159,7 @@ Ext.define('Melisa.people.view.universal.contacts.add.WrapperController', {
             email: values.email,
             idLabel: values.idLabel,
             isPrimary: values.isPrimary,
-            label: form.down('combodefault').getRawValue()
+            label: values.label
         });
         
         return true;
