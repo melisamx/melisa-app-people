@@ -45,8 +45,10 @@ Ext.define('Melisa.people.view.desktop.contacts.update.WrapperController', {
             stoEmails.add({
                 id: record.id,
                 email: record.email,
-                idLabel: record.idLabel,
-                label: record.label.name,
+                idLabel: !record.label ? 
+                    null : record.idLabel,
+                label: !record.label ? 
+                    null : record.label.name,
                 isPrimary: record.isPrimary
             });
         });
@@ -59,8 +61,10 @@ Ext.define('Melisa.people.view.desktop.contacts.update.WrapperController', {
                 postalCode: record.postalCode,
                 street: record.street,
                 colony: record.colony,
-                idLabel: record.idLabel,
-                label: record.label.name,
+                idLabel: !record.label ? 
+                    null : record.idLabel,
+                label: !record.label ? 
+                    null : record.label.name,
                 state: record.state.name,
                 municipality: record.municipality.name,
                 isPrimary: record.isPrimary
@@ -68,11 +72,14 @@ Ext.define('Melisa.people.view.desktop.contacts.update.WrapperController', {
         });
         
         Ext.each(data.phoneNumbers, function(record) {
+            
             stoPhoneNumbers.add({
                 id: record.id,
-                idLabel: record.idLabel,
+                idLabel: !record.label ? 
+                    null : record.idLabel,
                 number: record.number,
-                label: record.label.name,
+                label: !record.label ? 
+                    null : record.label.name,
                 isPrimary: record.isPrimary
             });
         });

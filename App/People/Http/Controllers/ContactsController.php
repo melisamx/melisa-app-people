@@ -2,18 +2,19 @@
 
 use Melisa\Laravel\Http\Controllers\Controller;
 use Melisa\Laravel\Logics\PagingLogics;
-use Melisa\Laravel\Logics\CreateLogic;
 use Melisa\Laravel\Logics\DeleteLogic;
 
 use App\People\Http\Requests\Contacts\PagingRequest;
 use App\People\Http\Requests\Contacts\CreateRequest;
 use App\People\Http\Requests\Contacts\DeleteRequest;
+use App\People\Http\Requests\Contacts\UpdateRequest;
 
 use App\People\Repositories\PeopleRepository;
 use App\People\Criteria\Contacts\PagingCriteria;
 
-use App\People\Logics\Contacts\CreateLogic as ContactCreateLogic;
+use App\People\Logics\Contacts\CreateLogic;
 use App\People\Logics\Contacts\ReportLogic;
+use App\People\Logics\Contacts\UpdateLogic;
 
 use App\People\Modules\Contacts\ReportModule;
 
@@ -33,7 +34,16 @@ class ContactsController extends Controller
         
     }
     
-    public function create(CreateRequest $request, PeopleRepository $repository, ContactCreateLogic $logic)
+    public function create(CreateRequest $request, PeopleRepository $repository, CreateLogic $logic)
+    {
+        
+        $result = $logic->init($request->allValid());
+        
+        return response()->data($result);
+        
+    }
+    
+    public function update(UpdateRequest $request, PeopleRepository $repository, UpdateLogic $logic)
     {
         
         $result = $logic->init($request->allValid());

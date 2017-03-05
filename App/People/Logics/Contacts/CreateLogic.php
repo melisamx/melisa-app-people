@@ -104,7 +104,7 @@ class CreateLogic
             $event ['idFiles']= $idFiles;
         }
         
-        $idLabels = $this->createLabel($idPeople, $input['labels']);
+        $idLabels = $this->createLabels($idPeople, $input['labels']);
         
         if( $idLabels === false) {
             return false;
@@ -116,7 +116,7 @@ class CreateLogic
         
     }
     
-    public function createLabel($idPeople, $input)
+    public function createLabels($idPeople, &$input)
     {
         
         $records = json_decode($input);
@@ -147,7 +147,7 @@ class CreateLogic
         
     }
     
-    public function createFiles($idPeople, $input)
+    public function createFiles($idPeople, &$input)
     {
         
         $records = json_decode($input);

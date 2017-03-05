@@ -3,6 +3,7 @@
 Route::post('/', 'ContactsController@create')->middleware('gate:task.people.contacts.create');
 Route::post('/simple', 'ContactsController@createSimple')->middleware('gate:task.people.contacts.simple.create');
 Route::post('delete', 'ContactsController@delete')->middleware('gate:task.people.contacts.delete');
+Route::post('update', 'ContactsController@update')->middleware('gate:task.people.contacts.update');
 
 Route::get('/', 'ContactsController@paging')->middleware('gate:task.people.contacts.paging');
 Route::get('view', 'ContactsController@view')->middleware('gate:task.people.contacts.view.access');
