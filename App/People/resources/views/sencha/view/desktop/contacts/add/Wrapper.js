@@ -22,6 +22,7 @@ Ext.define('Melisa.people.view.desktop.contacts.add.Wrapper', {
     ],
     
     controller: 'peoplepeopleadd',
+    iconCls: 'x-fa fa-plus',
     viewModel: {
         type: 'peoplepeopleadd'
     },
@@ -32,35 +33,28 @@ Ext.define('Melisa.people.view.desktop.contacts.add.Wrapper', {
             items: [
                 {
                     xtype: 'peoplepeopleform',
-                    title: 'Datos basicos'
+                    iconCls: 'x-fa fa-id-badge',
+                    tooltip: 'Datos basicos'
                 },
                 {
-                    title: 'Información de contacto',
-                    layout: 'fit',
-                    items: [
-                        {
-                            xtype: 'tabpanel',
-                            tabPosition: 'bottom',
-                            items: [
-                                {
-                                    xtype: 'peoplepeopleemailsgrid',
-                                    title: 'Correos electronicos'
-                                },
-                                {
-                                    xtype: 'peoplepeoplephonenumbersgrid',
-                                    title: 'Números telefónicos'
-                                },
-                                {
-                                    title: 'Direcciones',
-                                    xtype: 'peoplepeopleaddressesgrid'
-                                }
-                            ]
-                        }
-                    ]
+                    xtype: 'peoplepeopleemailsgrid',
+                    tooltip: 'Correos electronicos',
+                    iconCls: 'x-fa fa-envelope-o'
+                },
+                {
+                    xtype: 'peoplepeoplephonenumbersgrid',
+                    tooltip: 'Números telefónicos',
+                    iconCls: 'x-fa fa-phone'
+                },
+                {
+                    xtype: 'peoplepeopleaddressesgrid',
+                    tooltip: 'Direcciones',
+                    iconCls: 'x-fa fa-address-card-o'
                 },
                 {
                     xtype: 'peoplepeoplefilesgrid',
-                    title: 'Documentos'
+                    tooltip: 'Documentos',
+                    iconCls: 'x-fa fa-file-text-o'
                 },
                 {
                     xtype: 'textfield',

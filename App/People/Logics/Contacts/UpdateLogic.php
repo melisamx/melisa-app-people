@@ -75,6 +75,9 @@ class UpdateLogic extends CreateLogic
         $records = json_decode($input);
         
         if( empty($records)) {
+            $result = $this->peopleAddressesRepository->getModel()
+                    ->where('idPeople', $idPeople)
+                    ->delete();
             return [];
         }
         
@@ -82,25 +85,56 @@ class UpdateLogic extends CreateLogic
         $idIdentity = $this->getIdentity();
         foreach($records as $record) {
             
-            $result = $this->peopleAddressesRepository->updateOrCreate([
-                'idPeople'=>$idPeople,                
+            $phoneNumber = $this->peopleAddressesRepository->findWhere([
+                'idPeople'=>$idPeople,
                 'idState'=>$record->idState,
                 'idMunicipality'=>$record->idMunicipality,
-                'street'=>$record->street,                
-            ], [
-                'idIdentityUpdated'=>$idIdentity,
-                'postalCode'=>$record->postalCode,
-                'colony'=>$record->colony,
-                'idLabel'=>empty($record->idLabel) ? null : $record->idLabel,
-                'isPrimary'=>empty($record->isPrimary) ? false : true,
+                'street'=>$record->street,
             ]);
+            
+            if( !$phoneNumber->count()) {                
+                $result = $this->peopleAddressesRepository->create([
+                    'idPeople'=>$idPeople,
+                    'idIdentityCreated'=>$idIdentity,
+                    'idState'=>$record->idState,
+                    'idMunicipality'=>$record->idMunicipality,
+                    'street'=>$record->street,
+                    'postalCode'=>$record->postalCode,
+                    'colony'=>$record->colony,
+                    'idLabel'=>empty($record->idLabel) ? null : $record->idLabel,
+                    'isPrimary'=>empty($record->isPrimary) ? false : true,
+                ]);
+            } else {
+                $result = $this->peopleAddressesRepository->updateOrCreate([
+                    'idPeople'=>$idPeople,                
+                    'idState'=>$record->idState,
+                    'idMunicipality'=>$record->idMunicipality,
+                    'street'=>$record->street,
+                ], [
+                    'idIdentityUpdated'=>$idIdentity,
+                    'postalCode'=>$record->postalCode,
+                    'colony'=>$record->colony,
+                    'idLabel'=>empty($record->idLabel) ? null : $record->idLabel,
+                    'isPrimary'=>empty($record->isPrimary) ? false : true,
+                ]);
+            }
             
             if( !$result) {
                 return false;
             }
             
-            $ids []= $result;
+            $ids []= isset($result->id) ? $result->id : $result;
             
+        }
+        
+        /* delete emails not include in request */
+        $result = $this->peopleAddressesRepository->getModel()
+                ->where('idPeople', $idPeople)
+                ->whereNotIn('id', $ids)
+                ->delete();
+        
+        if( $result === false) {
+            return false;
         }
         
         return $ids;        

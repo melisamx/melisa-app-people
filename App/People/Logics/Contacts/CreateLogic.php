@@ -286,6 +286,10 @@ class CreateLogic
     {
         
         $input ['idIdentityCreated']= $this->getIdentity();
+        $input ['idBloodType']= empty($input['idBloodType']) ? 
+                null : $input['idBloodType'];
+        $input ['birthday']= empty($input['birthday']) ? 
+                null : $input['birthday'];
         
         $idPeople = $this->peopleRepository->create($input);
         

@@ -62,6 +62,7 @@ Ext.define('Melisa.people.view.desktop.contacts.add.WrapperController', {
         
         Ext.create('widget.peopledetailswindow', {
             title: 'Agregar dirección',
+            height: '80%',
             viewModel: me.getViewModel(),
             items: [
                 {

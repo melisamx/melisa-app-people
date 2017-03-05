@@ -17,6 +17,7 @@ Ext.define('Melisa.people.view.desktop.contacts.view.Wrapper', {
     cls: 'app-people-contacts-view',
     controller: 'peoplecontactsview',
     viewModel: 'peoplecontactsview',
+    iconCls: 'x-fa fa-address-card-o',
     items: [
         {
             region: 'center',

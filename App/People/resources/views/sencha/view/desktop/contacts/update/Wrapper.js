@@ -7,6 +7,7 @@ Ext.define('Melisa.people.view.desktop.contacts.update.Wrapper', {
     ],
     
     controller: 'peoplecontactsupdate',
+    iconCls: 'x-fa fa-pencil',
     viewModel: {
         data: {
             mode: 'update'
