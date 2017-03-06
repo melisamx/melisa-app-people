@@ -17,7 +17,8 @@ class ApplicationSeeder extends InstallSeeder
             'name'=>'People',
             'description'=>'Application People',
             'nameSpace'=>'Melisa.people',
-            'typeSecurity'=>'art'
+            'typeSecurity'=>'art',
+            'version'=>'1.1.2'
         ]);
         
     }
