@@ -54,6 +54,7 @@ Ext.define('Melisa.people.view.desktop.people.addresses.Form', {
             name: 'idMunicipality',
             fieldLabel: 'Municipio',
             itemId: 'cmbMunicipalities',
+            allowBlank: true,
             bind: {
                 store: '{municipalities}',
                 melisa: '{modules.municipalitiesAdd}',
