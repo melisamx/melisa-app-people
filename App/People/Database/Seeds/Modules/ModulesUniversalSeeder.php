@@ -22,7 +22,21 @@ class ModulesUniversalSeeder extends Seeder
         $this->bloodTypes();
         $this->filesTypes();
         $this->contactsFiles();
+        $this->countries();
+        $this->colonies();
         
+    }
+    
+    public function colonies()
+    {
+        $this->call(Universal\Colonies\PagingSeeder::class);        
+        $this->call(Universal\Colonies\CreateSeeder::class);        
+    }
+    
+    public function countries()
+    {
+        $this->call(Universal\Countries\PagingSeeder::class);        
+        $this->call(Universal\Countries\CreateSeeder::class);        
     }
     
     public function contactsFiles()

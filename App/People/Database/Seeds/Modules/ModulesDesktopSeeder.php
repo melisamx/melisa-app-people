@@ -17,7 +17,19 @@ class ModulesDesktopSeeder extends Seeder
         $this->labels();
         $this->states();
         $this->municipalities();
+        $this->colonies();
+        $this->countries();
         
+    }
+    
+    public function countries()
+    {
+        $this->call(Desktop\Countries\AddSeeder::class);
+    }
+    
+    public function colonies()
+    {
+        $this->call(Desktop\Colonies\AddSeeder::class);
     }
     
     public function municipalities()
