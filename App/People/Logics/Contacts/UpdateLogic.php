@@ -42,6 +42,10 @@ class UpdateLogic extends CreateLogic
     {
         
         $input ['idIdentityUpdated']= $this->getIdentity();
+        $input ['idBloodType']= empty($input['idBloodType']) ? 
+                null : $input['idBloodType'];
+        $input ['birthday']= empty($input['birthday']) ? 
+                null : $input['birthday'];
         
         $result = $this->peopleRepository->update($input, $input['id']);
         
