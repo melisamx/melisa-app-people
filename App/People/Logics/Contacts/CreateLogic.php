@@ -23,6 +23,7 @@ class CreateLogic
     protected $peopleAddressesRepository;
     protected $peopleFilesRepository;
     protected $peopleLabelsRepository;
+    protected $eventSuccess = 'people.contacts.create.success';
 
     public function __construct(
             PeopleRepository $peopleRepository,
@@ -60,7 +61,7 @@ class CreateLogic
             return $this->peopleRepository->rollBack();
         }
         
-        if( !$this->emitEvent('contacts.create.success', $event)) {
+        if( !$this->emitEvent($this->eventSuccess, $event)) {
             return $this->peopleRepository->rollBack();
         }
         

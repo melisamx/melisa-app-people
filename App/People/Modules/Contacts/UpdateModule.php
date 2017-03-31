@@ -10,7 +10,7 @@ use App\Core\Logics\Modules\Outbuildings;
 class UpdateModule extends Outbuildings
 {
     
-    public $event = 'event.people.contacts.update.access';
+    public $event = 'people.contacts.update.access';
     
     public function dataDictionary() {
         

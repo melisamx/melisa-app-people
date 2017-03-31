@@ -10,6 +10,8 @@ use App\People\Logics\Contacts\CreateLogic;
 class UpdateLogic extends CreateLogic
 {
     
+    protected $eventSuccess = 'people.contacts.update.success';
+    
     public function init($input = [])
     {
         

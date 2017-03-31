@@ -10,7 +10,7 @@ use App\Core\Logics\Modules\Outbuildings;
 class ViewModule extends Outbuildings
 {
     
-    public $event = 'event.people.contacts.view.access';
+    public $event = 'people.contacts.view.access';
     
     public function dataDictionary() {
         
