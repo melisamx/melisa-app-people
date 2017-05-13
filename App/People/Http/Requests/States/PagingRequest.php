@@ -13,6 +13,7 @@ class PagingRequest extends WithFilter
         'page'=>'bail|required|xss|numeric',
         'start'=>'bail|required|xss|numeric',
         'limit'=>'bail|required|xss|numeric',
+        'query'=>'bail|required|xss',
         'filter'=>'bail|sometimes|json|filter:name',
     ];
     

@@ -1,6 +1,6 @@
 <?php namespace App\People\Criteria\States;
 
-use Melisa\Repositories\Criteria\Criteria;
+use Melisa\Laravel\Criteria\FilterCriteria;
 use Melisa\Repositories\Contracts\RepositoryInterface;
 
 /**
@@ -8,15 +8,18 @@ use Melisa\Repositories\Contracts\RepositoryInterface;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class PagingCriteria extends Criteria
+class PagingCriteria extends FilterCriteria
 {
     
     public function apply($model, RepositoryInterface $repository, array $input = [])
-    {
+    {        
+        $builder = parent::apply($model, $repository, $input);
         
-        return $model
-                ->orderBy('states.name');
+        if( isset($input['query'])) {            
+            $builder = $builder->where('name', 'like', '%' . $input['query'] . '%');            
+        }
         
+        return $builder->orderBy('states.name');        
     }
     
 }

@@ -16,10 +16,8 @@ class PagingCriteria extends FilterCriteria
         
         $builder = parent::apply($model, $repository, $input);
         
-        if( isset($input['query'])) {
-            
-            $builder = $builder->where('name', 'like', '%' . $input['query'] . '%');
-            
+        if( isset($input['query'])) {            
+            $builder = $builder->where('name', 'like', '%' . $input['query'] . '%');            
         }
         
         return $builder
