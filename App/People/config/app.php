@@ -186,6 +186,7 @@ return [
         Melisa\Laravel\Providers\ResponseMacroServiceProvider::class,
         Melisa\Laravel\Providers\SanitizerServiceProvider::class,
         Melisa\Laravel\Providers\ValidatorServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -234,7 +235,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        
     ],
 
 ];
