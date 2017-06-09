@@ -9,14 +9,17 @@ use Melisa\Laravel\Models\Base;
  *
  * @author Luis Josafat Heredia Contreras
  */
-abstract class BloodTypesAbstract extends Base
+abstract class SettlementsAbstract extends Base
 {    
     protected $connection = 'people';
-    protected $table = 'bloodTypes';
+    protected $table = 'settlements';
     public $timestamps = false;
     public $incrementing = true;
     protected $fillable = [
         'id',
-        'name'
+        'postalCode',
+        'idMunicipality',
+        'settlement',
+        'idTypeSettlement'
     ];    
 }

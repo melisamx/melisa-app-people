@@ -1,4 +1,6 @@
-<?php namespace App\People\Logics\Contacts;
+<?php
+
+namespace App\People\Logics\Contacts;
 
 use Melisa\core\LogicBusiness;
 use App\People\Repositories\PeopleRepository;

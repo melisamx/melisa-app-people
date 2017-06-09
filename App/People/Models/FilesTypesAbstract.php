@@ -1,4 +1,6 @@
-<?php namespace App\People\Models;
+<?php 
+
+namespace App\People\Models;
 
 use Melisa\Laravel\Models\Base;
 
@@ -7,19 +9,14 @@ use Melisa\Laravel\Models\Base;
  *
  * @author Luis Josafat Heredia Contreras
  */
-class FilesTypesAbstract extends Base
-{
-    
+abstract class FilesTypesAbstract extends Base
+{    
     protected $connection = 'people';
-    
     protected $table = 'filesTypes';
-    
-    protected $fillable = [
-        'id', 'name'
-    ];
-    
     public $timestamps = false;
-    
-    /* incrementing */
-    
+    public $incrementing = true;
+    protected $fillable = [
+        'id',
+        'name'
+    ];    
 }
