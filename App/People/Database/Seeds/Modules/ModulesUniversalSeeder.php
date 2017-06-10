@@ -1,18 +1,19 @@
-<?php namespace App\People\Database\Seeds\Modules;
+<?php
 
-use Illuminate\Database\Seeder;
+namespace App\People\Database\Seeds\Modules;
+
+use Melisa\Laravel\Database\InstallSeeder;
 
 /**
  * 
  *
  * @author Luis Josafat Heredia Contreras
  */
-class ModulesUniversalSeeder extends Seeder
+class ModulesUniversalSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $this->labels();
         $this->contacts();
         $this->contactsEmails();
@@ -23,8 +24,15 @@ class ModulesUniversalSeeder extends Seeder
         $this->filesTypes();
         $this->contactsFiles();
         $this->countries();
-        $this->colonies();
-        
+        $this->colonies();        
+        $this->settlements();
+    }
+    
+    public function settlements()
+    {
+        $this->installModuleJson('Universal/Settlements', [
+            'paging',
+        ]);      
     }
     
     public function colonies()
@@ -91,8 +99,7 @@ class ModulesUniversalSeeder extends Seeder
         $this->call(Universal\Labels\Emails\PagingSeeder::class);
         $this->call(Universal\Labels\PhoneNumbers\PagingSeeder::class);
         $this->call(Universal\Labels\Addresses\PagingSeeder::class);
-        $this->call(Universal\Labels\People\PagingSeeder::class);
-        
+        $this->call(Universal\Labels\People\PagingSeeder::class);        
     }
     
 }

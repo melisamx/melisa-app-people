@@ -3,6 +3,7 @@
 namespace App\People\Logics\CodePostal;
 
 use Melisa\core\LogicBusiness;
+use App\Tools\Logics\Files\Reader\CsvLogics;
 use App\People\Repositories\StatesRepository;
 use App\People\Repositories\MunicipalitiesRepository;
 use App\People\Repositories\TypesSettlementsRepository;
@@ -17,6 +18,7 @@ class ImportLogic
 {
     use LogicBusiness;
     
+    protected $reader;
     protected $states;
     protected $municipalities;
     protected $typesSettlements;
@@ -26,23 +28,22 @@ class ImportLogic
         StatesRepository $states,
         MunicipalitiesRepository $municipalities,
         TypesSettlementsRepository $typesSettlements,
-        SettlementsRepository $settlements
+        SettlementsRepository $settlements,
+        CsvLogics $reader
     )
     {
         $this->states = $states;
         $this->municipalities = $municipalities;
         $this->typesSettlements = $typesSettlements;
         $this->settlements = $settlements;
+        $this->reader = $reader;
     }
     
-    public function init($request)
-    {
-        $fileName = $this->getFileName($request);        
-        $reader = \Excel::load($fileName)->get();
-        
+    public function init($filename)
+    {        
+        $data = $this->readFile($filename);
         $this->states->beginTransaction();
-        
-        $result = $this->process($reader);
+        $result = $this->process($data);
         
         if( !$result) {
             return false;
@@ -50,6 +51,11 @@ class ImportLogic
         
         $this->states->commit();
         return $result;        
+    }
+    
+    public function readFile($filename)
+    {
+        return $this->reader->init($filename);
     }
     
     public function process(&$reader)
@@ -68,12 +74,12 @@ class ImportLogic
             
             $municipality = $this->createMuninicipalities([
                 'idState'=>$state->id,
-                'name'=>$row->d_mnpio
+                'name'=>$row->D_mnpio
             ]);
             
             if( !$municipality) {
                 return $this->error('Imposible registrar municipio {m} del estado {s}', [
-                    'm'=>$row->d_mnpio,
+                    'm'=>$row->D_mnpio,
                     'e'=>$row->d_estado,
                 ]);
             }
@@ -97,7 +103,7 @@ class ImportLogic
                 return $this->error('Imposible crear asentamiento {a} del estado {s}, municipio {m}', [
                     'a'=>$row->d_asenta,
                     's'=>$row->d_estado,
-                    'm'=>$row->d_mnpio,
+                    'm'=>$row->D_mnpio,
                 ]);
             }
             
@@ -138,12 +144,6 @@ class ImportLogic
     public function createStates(array $input)
     {
         return $this->states->updateOrCreate($input);
-    }
-    
-    public function getFileName(&$request)
-    {
-        $path = $request->file->path();
-        return $path;
     }
     
 }

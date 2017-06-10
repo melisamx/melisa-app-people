@@ -1,4 +1,6 @@
-<?php namespace App\People\Database\Seeds\Modules\Universal\Municipalities;
+<?php
+
+namespace App\People\Database\Seeds\Modules\Universal\Municipalities;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -11,8 +13,7 @@ class PagingSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $this->installModule([
             [
                 'name'=>'Paginar lista de municipios',
@@ -29,8 +30,7 @@ class PagingSeeder extends InstallSeeder
                     'description'=>'Listado de municipios paginado sastisfactoriamente'
                 ]
             ],
-        ]);
-        
+        ]);        
     }
     
 }

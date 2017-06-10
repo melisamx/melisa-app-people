@@ -77,3 +77,10 @@ Route::group([
 ], function() {    
     require realpath(base_path() . '/routes/modules/bloodTypes.php');    
 });
+
+Route::group([
+    'prefix'=>'settlements',
+    'middleware'=>'auth',
+], function() {    
+    require realpath(base_path() . '/routes/modules/settlements.php');    
+});

@@ -1,0 +1,11 @@
+{
+    "name": "Paginar lista de asentamientos",
+    "url": "/people.php/settlements/",
+    "description": "Módulo para paginar lista de asentamientos",
+    "task": {
+        "key": "task.people.settlements.paging",
+        "name": "Paginar lista de asentamientos",
+        "description": "Permitir paginar lista de asentamientos",
+        "pattern": "read"
+    }
+}

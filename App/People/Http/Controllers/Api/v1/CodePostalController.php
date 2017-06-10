@@ -15,7 +15,7 @@ class CodePostalController extends Controller
 {
     public function import(ImportRequest $request, ImportLogic $logic)
     {
-        return $logic->init($request);
+        return $logic->init($request->file->path());
     }
     
 }
