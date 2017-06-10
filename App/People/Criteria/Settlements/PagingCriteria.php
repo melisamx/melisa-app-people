@@ -18,7 +18,7 @@ class PagingCriteria extends FilterCriteria
         $builder = parent::apply($model, $repository, $input);
         
         if( isset($input['query'])) {            
-            $builder = $builder->where('postalCode', 'like', '%' . $input['query'] . '%');            
+            $builder = $this->buildQuery($builder, $input['query']);
         }
         
         return $builder
@@ -33,6 +33,21 @@ class PagingCriteria extends FilterCriteria
             ->join('states as s', 's.id', '=', 'm.idState')
             ->join('typesSettlements as ts', 'ts.id', '=', 'settlements.idTypeSettlement')
             ->orderBy('settlements.postalCode');        
+    }
+    
+    /**
+     * Support like settlement
+     */
+    public function buildQuery(&$builder, $query)
+    {
+        $words = explode(' ', $query);
+        
+        if( count($words) > 1) {
+            $builder = $builder->where('settlements.settlement', 'like', '%' . $words[1] . '%');
+        }
+        
+        return $builder
+            ->where('postalCode', 'like', '%' . $words[0] . '%');
     }
     
 }
