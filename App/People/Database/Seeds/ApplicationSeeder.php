@@ -1,4 +1,6 @@
-<?php namespace App\People\Database\Seeds;
+<?php
+
+namespace App\People\Database\Seeds;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
@@ -11,16 +13,14 @@ class ApplicationSeeder extends InstallSeeder
 {
     
     public function run()
-    {
-        
+    {        
         $this->installApplication('people', [
             'name'=>'People',
             'description'=>'Application People',
             'nameSpace'=>'Melisa.people',
             'typeSecurity'=>'art',
-            'version'=>'1.2.1'
-        ]);
-        
+            'version'=>'1.3.0'
+        ]);        
     }
     
 }

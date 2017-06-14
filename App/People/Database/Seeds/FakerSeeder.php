@@ -1,4 +1,6 @@
-<?php namespace App\People\Database\Seeds;
+<?php
+
+namespace App\People\Database\Seeds;
 
 use Melisa\Laravel\Database\InstallSeeder;
 
