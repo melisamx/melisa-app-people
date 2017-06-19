@@ -2,19 +2,18 @@
 
 namespace App\People\Models;
 
-use Melisa\Laravel\Models\Base;
+use Melisa\Laravel\Models\BaseUuid;
 
 /**
  * 
- *
  * @author Luis Josafat Heredia Contreras
  */
-abstract class PeopleLabelsAbstract extends Base
+abstract class PeopleLabelsAbstract extends BaseUuid
 {    
     protected $connection = 'people';
     protected $table = 'peopleLabels';
     public $timestamps = false;
-    public $incrementing = true;
+    /* incrementing */
     protected $fillable = [
         'id',
         'idPeople',
