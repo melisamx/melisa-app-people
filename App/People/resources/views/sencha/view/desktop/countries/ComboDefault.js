@@ -3,6 +3,7 @@ Ext.define('Melisa.people.view.desktop.countries.ComboDefault', {
     alias: 'widget.peopleCountriesCombo',
     
     fieldLabel: 'País',
+    name: 'idCountry',
     forceSelection: true,
     bind: {
         store: '{countries}',
