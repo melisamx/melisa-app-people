@@ -43,8 +43,9 @@ class ModulesUniversalSeeder extends InstallSeeder
     
     public function countries()
     {
-        $this->call(Universal\Countries\PagingSeeder::class);        
-        $this->call(Universal\Countries\CreateSeeder::class);        
+        $this->installModuleJson('Universal/Countries', [
+            'paging',
+        ]);       
     }
     
     public function contactsFiles()

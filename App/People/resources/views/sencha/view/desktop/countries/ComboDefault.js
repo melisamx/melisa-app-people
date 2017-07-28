@@ -5,6 +5,9 @@ Ext.define('Melisa.people.view.desktop.countries.ComboDefault', {
     fieldLabel: 'País',
     name: 'idCountry',
     forceSelection: true,
+    listConfig: {
+        emptyText: 'País no encontrado'
+    },
     bind: {
         store: '{countries}',
         melisa: '{modules.countriesAdd}',

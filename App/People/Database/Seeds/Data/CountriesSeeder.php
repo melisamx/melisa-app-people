@@ -1,7 +1,8 @@
-<?php namespace App\People\Database\Seeds\Data;
+<?php
+
+namespace App\People\Database\Seeds\Data;
 
 use Melisa\Laravel\Database\InstallSeeder;
-use App\People\Models\Countries;
 
 /**
  * 
@@ -13,11 +14,9 @@ class CountriesSeeder extends InstallSeeder
     
     public function run()
     {
-        
-        Countries::updateOrCreate([
-            'name'=>'México'
-        ]);
-        
+        $this->csvImportSimple([
+            'countries'
+        ]);        
     }
     
 }

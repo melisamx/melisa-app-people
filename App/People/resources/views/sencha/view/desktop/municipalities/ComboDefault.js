@@ -2,8 +2,12 @@ Ext.define('Melisa.people.view.desktop.municipalities.ComboDefault', {
     extend: 'Melisa.view.desktop.ComboDefault',
     alias: 'widget.peopleMunicipalitiesCombo',
     
+    name: 'idMunicipality',
     fieldLabel: 'Municipio',
     forceSelection: true,
+    listConfig: {
+        emptyText: 'Municipio no encontrado'
+    },
     bind: {
         store: '{municipalities}',
         melisa: '{modules.municipalitiesAdd}',

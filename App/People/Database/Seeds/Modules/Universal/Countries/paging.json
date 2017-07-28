@@ -1,0 +1,11 @@
+{
+    "name": "Paginar lista de paises",
+    "url": "/people.php/countries/",
+    "description": "Módulo para paginar lista de paises",
+    "task": {
+        "key": "task.people.countries.paging",
+        "name": "Paginar lista de paises",
+        "description": "Permitir paginar lista de paises",
+        "pattern": "read"
+    }
+}
