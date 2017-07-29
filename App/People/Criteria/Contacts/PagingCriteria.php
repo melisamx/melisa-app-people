@@ -1,7 +1,8 @@
-<?php namespace App\People\Criteria\Contacts;
+<?php
+
+namespace App\People\Criteria\Contacts;
 
 use Melisa\Repositories\Criteria\Criteria;
-use Melisa\Repositories\Contracts\RepositoryInterface;
 
 /**
  * 
@@ -11,9 +12,8 @@ use Melisa\Repositories\Contracts\RepositoryInterface;
 class PagingCriteria extends Criteria
 {
     
-    public function apply($model, RepositoryInterface $repository, array $input = [])
-    {
-        
+    public function apply($model, $repository, array $input = [])
+    {        
         $builder = $model;
         
         if( isset($input['query'])) {
@@ -25,32 +25,31 @@ class PagingCriteria extends Criteria
         }
         
         return $builder
-                ->select([
-                    'people.*',
-                    \DB::raw(implode('', [
-                        '(',
-                        'select email from peopleEmails ',
-                        'where idPeople=people.id ',
-                        'order by isPrimary ',
-                        'limit 1 ',
-                        ') as email'
-                    ])),
-                    \DB::raw(implode('', [
-                        '(',
-                        'select number from peoplePhoneNumbers ',
-                        'where idPeople=people.id ',
-                        'order by isPrimary ',
-                        'limit 1 ',
-                        ') as phoneNumber'
-                    ]))
-                ])
-                ->orderBy('people.name');
+            ->select([
+                'people.*',
+                \DB::raw(implode('', [
+                    '(',
+                    'select email from peopleEmails ',
+                    'where idPeople=people.id ',
+                    'order by isPrimary ',
+                    'limit 1 ',
+                    ') as email'
+                ])),
+                \DB::raw(implode('', [
+                    '(',
+                    'select number from peoplePhoneNumbers ',
+                    'where idPeople=people.id ',
+                    'order by isPrimary ',
+                    'limit 1 ',
+                    ') as phoneNumber'
+                ]))
+            ])
+            ->orderBy('people.name');
         
     }
     
     public function appendFilters(&$model, array &$filters)
-    {
-        
+    {        
         $builder = $model;
         
         foreach($filters as $filter) {
@@ -64,16 +63,13 @@ class PagingCriteria extends Criteria
                     
                 });
                 
-            } else {
-                
+            } else {                
                 $builder = $builder->where($filter->property, 'like', '%' . $filter->value . '%');
-                
             }
             
         }
         
-        return $builder;
-        
+        return $builder;        
     }
     
 }
