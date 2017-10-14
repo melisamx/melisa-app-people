@@ -5,6 +5,7 @@ Ext.define('Melisa.people.view.desktop.states.ComboDefault', {
     fieldLabel: 'Estado',
     name: 'idState',
     forceSelection: true,
+    pageSize: 25,
     listConfig: {
         emptyText: 'Estado no encontrado'
     },
@@ -12,12 +13,12 @@ Ext.define('Melisa.people.view.desktop.states.ComboDefault', {
         store: '{states}',
         melisa: '{modules.statesAdd}',
         disabled: '{!modules.statesAdd.allowed}'
-    },
+    }/*,
     triggers: {
         other: {
             cls: 'x-form-trigger-default x-fa fa-plus',
             handler: 'moduleRun',
             focusOnMousedown: true
         }
-    }
+    }*/
 });

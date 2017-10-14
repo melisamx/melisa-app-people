@@ -7,6 +7,8 @@ Ext.define('Melisa.people.view.desktop.settlements.PostalCode', {
     name: 'postalCode',
     displayField: 'postalCode',
     valueField: 'postalCode',
+    hideTrigger: true,
+    forceSelection: false,
     tpl: Ext.create('Ext.XTemplate',
         '<ul class="x-list-plain"><tpl for=".">',
             '<li role="option" class="x-boundlist-item">',

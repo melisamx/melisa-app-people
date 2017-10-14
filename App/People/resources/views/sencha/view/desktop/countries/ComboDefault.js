@@ -5,6 +5,7 @@ Ext.define('Melisa.people.view.desktop.countries.ComboDefault', {
     fieldLabel: 'País',
     name: 'idCountry',
     forceSelection: true,
+    pageSize: 25,
     listConfig: {
         emptyText: 'País no encontrado'
     },
@@ -12,12 +13,12 @@ Ext.define('Melisa.people.view.desktop.countries.ComboDefault', {
         store: '{countries}',
         melisa: '{modules.countriesAdd}',
         disabled: '{!modules.countriesAdd.allowed}'
-    },
+    }/*,
     triggers: {
         other: {
             cls: 'x-form-trigger-default x-fa fa-plus',
             handler: 'moduleRun',
             focusOnMousedown: true
         }
-    }
+    }*/
 });

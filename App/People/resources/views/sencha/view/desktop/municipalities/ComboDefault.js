@@ -5,6 +5,7 @@ Ext.define('Melisa.people.view.desktop.municipalities.ComboDefault', {
     name: 'idMunicipality',
     fieldLabel: 'Municipio',
     forceSelection: true,
+    pageSize: 25,
     listConfig: {
         emptyText: 'Municipio no encontrado'
     },
@@ -12,12 +13,12 @@ Ext.define('Melisa.people.view.desktop.municipalities.ComboDefault', {
         store: '{municipalities}',
         melisa: '{modules.municipalitiesAdd}',
         disabled: '{!modules.municipalitiesAdd.allowed}'
-    },
+    }/*,
     triggers: {
         other: {
             cls: 'x-form-trigger-default x-fa fa-plus',
             handler: 'moduleRun',
             focusOnMousedown: true
         }
-    }
+    }*/
 });
