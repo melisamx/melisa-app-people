@@ -10,16 +10,9 @@
 | the IoC container for the system binding all of the various parts.
 |
 */
+use App\People\Application;
 
-require_once __DIR__ . '/../App/People/Application.php';
-
-$app = new App\People\Application(
-    [
-        'base'=>  realpath(__DIR__ . '/../App/People'),
-        'storage'=> realpath(__DIR__ . '/../App/People/storage'),
-        'storageSession'=>realpath(__DIR__ . '/../storage/framework/sessions'),
-    ]
-);
+$app = new Application(realpath(__DIR__ . '/../App/People'));
 
 /*
 |--------------------------------------------------------------------------
