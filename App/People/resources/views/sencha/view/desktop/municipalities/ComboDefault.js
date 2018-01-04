@@ -3,7 +3,7 @@ Ext.define('Melisa.people.view.desktop.municipalities.ComboDefault', {
     alias: 'widget.peopleMunicipalitiesCombo',
     
     name: 'idMunicipality',
-    fieldLabel: 'Municipio',
+    fieldLabel: 'Población, Municipio o Delegación',
     forceSelection: true,
     pageSize: 25,
     listConfig: {
