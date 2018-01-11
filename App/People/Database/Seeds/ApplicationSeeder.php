@@ -19,7 +19,8 @@ class ApplicationSeeder extends InstallSeeder
             'description'=>'Application People',
             'nameSpace'=>'Melisa.people',
             'typeSecurity'=>'art',
-            'version'=>'1.5.2'
+            'version'=>'1.5.3',
+            'comments'=>'Se agrego dirección de donde se descargan los códigos postales'
         ]);        
     }
     

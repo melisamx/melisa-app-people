@@ -15,6 +15,7 @@ class CodePostalSeeder extends InstallSeeder
     
     public function run()
     {
+        /* http://www.correosdemexico.gob.mx/lservicios/servicios/CodigoPostal_Exportar.aspx */
         app(ImportLocalFilesLogic::class)->init(__DIR__ . '/29-05-2017');        
     }
     
